@@ -1,7 +1,7 @@
-from re import X
-from turtle import fillcolor
+from xml.etree.ElementTree import tostring
 from manim import *
 import random
+from enum import Enum
 
 # == UNIT CONVERSION FROM MM TO MUNIT ==
 # Height of layout is 6 munits
@@ -11,7 +11,9 @@ U=6/H
 STATIC          = 0
 ANIMATE         = 1
 DRIVE_SPEED     = 150*U #mm/s
-ROTATE_SPEED    = 360 #deg/s
+ROTATE_SPEED    = 180 #deg/s
+CCW             = 1
+CW              = -1
 
 class Layouts(Scene):
     R1Pos=[[0,0,0],[0,0,0],[0,0,0]]
@@ -60,7 +62,8 @@ class Kobuki(Scene):
     Kobuki_X=np.array([0,0,0])
 
     # Ultrasonic Sensor Mobject
-    US_View=Dot()
+    US_View=None
+    US_View_Position_List=None
 
     # == METHODS ==
 
@@ -76,14 +79,14 @@ class Kobuki(Scene):
         US_ConeView_Height=1500*U
         US_ConeView_Base=600*U
 
-        position_list=[
+        Kobuki.US_View_Position_List=[
             kobuki.get_center(),
             kobuki.get_center()+Kobuki.Kobuki_X*US_ConeView_Base/2+Kobuki.Kobuki_Y*US_ConeView_Height,
             kobuki.get_center()-Kobuki.Kobuki_X*US_ConeView_Base/2+Kobuki.Kobuki_Y*US_ConeView_Height
         ]
 
-        Kobuki.US_View=Polygon(*position_list)
-        Kobuki.US_View.set_fill(color=BLUE_B,opacity=0.3)
+        Kobuki.US_View=Polygon(*Kobuki.US_View_Position_List)
+        Kobuki.US_View.set_fill(color=BLUE_B,opacity=0.1)
 
         if draw==True:
             self.add(Kobuki.US_View)
@@ -138,44 +141,34 @@ class Kobuki(Scene):
             Rotate(
                 kobuki, 
                 angle_rad,
-                run_time=(360/speed), 
+                run_time=(angle/speed), 
                 rate_func=linear
             ),
             Rotate(
                 Kobuki.US_View, 
                 angle_rad,
                 about_point=kobuki.get_center(),
-                run_time=(360/speed), 
+                run_time=(angle/speed), 
                 rate_func=linear
             )
         )
 
-class MarsRoverNavigation(Scene):
-    rover=Circle()
+    def UpdateDetection():
+        detectRock1=PointInsidePolygon.point_inside_polygon(
+            Layouts.R1Pos[0][0],
+            Layouts.R1Pos[0][1],
+            Kobuki.US_View.get_all_points()
+        )
+        detectRock2=PointInsidePolygon.point_inside_polygon(
+            Layouts.R2Pos[0][0],
+            Layouts.R2Pos[0][1],
+            Kobuki.US_View.get_all_points()
+        )
+        if detectRock1 or detectRock2: return True
+        else: return False
 
-    def SetTest1(self):
-        Layout1, W = Layouts.DrawLayout1(self,STATIC)
-        roverStartPos=[
-            U*(-W/2+225+Kobuki.Radius),
-            U*(-H/2+Kobuki.Radius),
-            0
-        ]
-        roverStartAngle=90
-
-        # Draw the Kobuki
-        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
-
-    def construct(self):
-       MarsRoverNavigation.SetTest1(self)
-
-       Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED) # drive 200mm
-       Kobuki.Rotate(self,MarsRoverNavigation.rover,-90,ROTATE_SPEED) # rotate 90˚
-       Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED)
-
-       self.wait(2)
-
-
-class TestPointInsidePolygon(Scene):
+# Testing Point detection
+class PointInsidePolygon(Scene):
     size=1
     poly_points=[
         [-size,size,0],
@@ -185,21 +178,21 @@ class TestPointInsidePolygon(Scene):
     ]
     
     def construct(self):
-        poly=Polygon(*TestPointInsidePolygon.poly_points)
+        poly=Polygon(*PointInsidePolygon.poly_points)
         self.add(poly)
 
         for dot in range(20):
             d_coord=[
-                random.uniform(-(TestPointInsidePolygon.size+2),TestPointInsidePolygon.size+2),
-                random.uniform(-(TestPointInsidePolygon.size+2),TestPointInsidePolygon.size+2),
+                random.uniform(-(PointInsidePolygon.size+2),PointInsidePolygon.size+2),
+                random.uniform(-(PointInsidePolygon.size+2),PointInsidePolygon.size+2),
                 0
             ]
             d=Dot(d_coord)
 
-            if TestPointInsidePolygon.point_inside_polygon(
+            if PointInsidePolygon.point_inside_polygon(
                 d_coord[0],
                 d_coord[1],
-                TestPointInsidePolygon.poly_points
+                PointInsidePolygon.poly_points
             )==True:
                 d.set_color(GREEN)
             else: 
@@ -250,3 +243,62 @@ class TestPointInsidePolygon(Scene):
             p1x, p1y = p2x, p2y
 
         return inside
+
+# ===
+
+class State(Enum):
+    IDLE    = 0
+    SEARCH  = 1
+    OBJECT  = 2
+
+class MarsRoverNavigation(Scene):
+    rover=Circle()
+
+    def SetTest1(self):
+        Layout1, W = Layouts.DrawLayout1(self,STATIC)
+        roverStartPos=[
+            U*(-W/2+225+Kobuki.Radius),
+            U*(-H/2+Kobuki.Radius),
+            0
+        ]
+        roverStartAngle=90
+
+        # Draw the Kobuki
+        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+
+    def updateUS_View(self, detected):
+        if detected==True:
+            Kobuki.US_View.set_color(RED).set_fill(color=RED,opacity=0.5)
+        else:
+            Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.1)
+
+    def construct(self):
+        MarsRoverNavigation.SetTest1(self)
+        state=State.IDLE
+        
+        for _ in range(50):
+            detected=Kobuki.UpdateDetection()
+
+            match state:
+                case State.IDLE:
+                    self.wait(0.5)
+                    state=State.SEARCH
+
+                case State.SEARCH:
+                    if detected:
+                        state=State.OBJECT
+                        MarsRoverNavigation.updateUS_View(self, detected)
+                        #Kobuki.Rotate(self,MarsRoverNavigation.rover,11*CCW,ROTATE_SPEED)
+                    else:
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,2*CCW,ROTATE_SPEED)
+
+                case State.OBJECT:
+                    if detected:
+                        Kobuki.Drive(self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED)
+                    else:
+                        MarsRoverNavigation.updateUS_View(self, detected)
+                        state=State.IDLE
+
+        # Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED) # drive 200mm
+        # Kobuki.Rotate(self,MarsRoverNavigation.rover,-90,ROTATE_SPEED) # rotate 90˚
+        # Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED)
