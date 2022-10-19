@@ -58,7 +58,7 @@ class Layouts(Scene):
         W=800 # mm
         Short_H=600 
         Tall_H=1200
-
+        L2_ORIGIN=ORIGIN+DOWN
         sections=[ # [BL, BR, TL, TR]
             Rectangle(
                 width=W*U,
@@ -84,15 +84,15 @@ class Layouts(Scene):
 
         # Moving sections into correct positions
         # Ignoring 210mm offset therefor 110mm offset is just a 100mm shift to the right
-        sections[0].shift(DOWN*(Short_H/2)*U + LEFT*(W/2)*U + RIGHT*(100)*U) # BL
-        sections[1].shift(DOWN*(Short_H/2)*U + RIGHT*(W/2+100)*U) # BR
-        sections[2].shift(UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
-        sections[3].shift(UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
+        sections[0].shift(L2_ORIGIN + DOWN*(Short_H/2)*U + LEFT*(W/2)*U + RIGHT*(100)*U) # BL
+        sections[1].shift(L2_ORIGIN + DOWN*(Short_H/2)*U + RIGHT*(W/2+100)*U) # BR
+        sections[2].shift(L2_ORIGIN + UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
+        sections[3].shift(L2_ORIGIN + UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
 
         
         # Rocks
-        Layouts.R1Pos[1]=[(W/2+110)*U,(-Short_H/2)*U,0]
-        Layouts.R2Pos[1]=[W/2*U,Tall_H/2*U,0]
+        Layouts.R1Pos[1]=L2_ORIGIN + [(W/2+110)*U,(-Short_H/2)*U,0]
+        Layouts.R2Pos[1]=L2_ORIGIN + [W/2*U,Tall_H/2*U,0]
         R1=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
         R2=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
         R1.move_to(Layouts.R1Pos[1])
@@ -107,7 +107,7 @@ class Layouts(Scene):
         elif staticOrAnimate==ANIMATE:
             self.play(DrawBorderThenFill(Layout2, lag_ratio=0.15))
 
-        return Layout2, W # Return layout group, width of layout
+        return Layout2, W
 
 class Kobuki(Scene):
     # == KOBUKI VARIABLES ==
@@ -409,10 +409,8 @@ class MarsRoverNavigation(Scene):
     def testAlgorithm(self):
         # Init stuff
         layout, layout_num=MarsRoverNavigation.SetTest2(self)
-
-        # Rotation direction
         DIR=CCW
-
+        angle=None
         state=State.IDLE
 
         WHILE_ESCAPE_COUNTER=300
@@ -432,6 +430,9 @@ class MarsRoverNavigation(Scene):
                 case State.SEARCH:
                     if detected:
                         state=State.OBJECT
+                        angle = -11 if CCW else 11
+                        og_distance=dist
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
                     elif not detected and not bumper:
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
 
@@ -443,6 +444,7 @@ class MarsRoverNavigation(Scene):
                         step=20
                         while mm < dist:
                             mm+=step
+                            # Update sensors
                             bumper=Kobuki.UpdateBumper(layout_num)
                             if bumper:
                                 state=State.OBSTACLE
@@ -458,14 +460,13 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Drive(self,MarsRoverNavigation.rover,-50*U,DRIVE_SPEED)
 
                 case State.AVOID:
-                    DIR = CW if DIR==CCW else CCW
+                    #DIR = CW if DIR==CCW else CCW
                     Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
                     state=State.SEARCH
         
-        if (WHILE_ESCAPE_COUNTER<=0):
-            print("ESCAPED WHILE LOOP")
-        if (MarsRoverNavigation.mission == [True, True]):
-            MarsRoverNavigation.MissionCompleted(self,layout)
+        if (WHILE_ESCAPE_COUNTER<=0): print("ESCAPED WHILE LOOP")
+        if (MarsRoverNavigation.mission == [True, True]): MarsRoverNavigation.MissionCompleted(self,layout)
 
     def construct(self):
         MarsRoverNavigation.testAlgorithm(self)
+        #MarsRoverNavigation.viewLayout2(self)
