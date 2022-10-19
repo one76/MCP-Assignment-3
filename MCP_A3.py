@@ -16,6 +16,9 @@ ROTATE_SPEED    = 160 #deg/s
 CCW             = 1
 CW              = -1
 
+def clamp(num, min_value, max_value):
+   return max(min(num, max_value), min_value)
+
 class Layouts(Scene):
     R1Pos=[[0,0,0],[0,0,0],[0,0,0]]
     R2Pos=[[0,0,0],[0,0,0],[0,0,0]]
@@ -136,23 +139,25 @@ class Kobuki(Scene):
             rate_func=linear
         )
     
-    def Rotate(self, kobuki, angle, speed):
+    def Rotate(self, kobuki, angle, speed, my_run_time=None):
         Kobuki.current_angle=(Kobuki.current_angle+angle)%360
         Kobuki.UpdateKobukiFaceDirections(Kobuki.current_angle)
         angle_rad=angle*(PI/180)
+
+        if my_run_time==None: my_run_time=abs(angle)/speed
 
         self.play(
             Rotate(
                 kobuki, 
                 angle_rad,
-                run_time=angle/speed, 
+                run_time=my_run_time,
                 rate_func=linear
             ),
             Rotate(
                 Kobuki.US_View, 
                 angle_rad,
                 about_point=kobuki.get_center(),
-                run_time=angle/speed, 
+                run_time=my_run_time,
                 rate_func=linear
             )
         )
@@ -204,8 +209,6 @@ class Kobuki(Scene):
             return True
         else: 
             return False
-
-
 
 # Testing Point detection
 class PointInsidePolygon(Scene):
@@ -315,10 +318,12 @@ class MarsRoverNavigation(Scene):
             Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
 
     def construct(self):
+        # Init stuff
         MarsRoverNavigation.SetTest1(self)
         layout_num=0 # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 ... etc.
-        state=State.IDLE
+        DIR=CCW
 
+        state=State.IDLE
         for _ in range(200):
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
@@ -327,11 +332,13 @@ class MarsRoverNavigation(Scene):
             match state:
                 case State.IDLE:
                     state=State.SEARCH
+
                 case State.SEARCH:
                     if detected:
                         state=State.OBJECT
                     elif not detected and not bumper:
-                        Kobuki.Rotate(self,MarsRoverNavigation.rover,2*CCW,ROTATE_SPEED)
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED)
+
                 case State.OBJECT:
                     if bumper:
                         state=State.OBSTACLE
@@ -339,11 +346,14 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Drive(self,MarsRoverNavigation.rover,dist*U,DRIVE_SPEED)
                     else:
                         state=State.SEARCH
+
                 case State.OBSTACLE:
                     if not bumper:
                         state=State.AVOID
                     else:
                         Kobuki.Drive(self,MarsRoverNavigation.rover,-50*U,DRIVE_SPEED)
+
                 case State.AVOID:
-                    Kobuki.Rotate(self,MarsRoverNavigation.rover,11*CCW,ROTATE_SPEED)
+                    DIR = CW if DIR==CCW else CCW
+                    Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
                     state=State.SEARCH
