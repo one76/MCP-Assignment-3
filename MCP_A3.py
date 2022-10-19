@@ -12,7 +12,7 @@ U=6/H
 STATIC          = 0
 ANIMATE         = 1
 DRIVE_SPEED     = 250*U #mm/s
-ROTATE_SPEED    = 160 #deg/s
+ROTATE_SPEED    = 200 #deg/s
 CCW             = 1
 CW              = -1
 
@@ -53,6 +53,61 @@ class Layouts(Scene):
             self.play(DrawBorderThenFill(Layout1, lag_ratio=0.15))
 
         return Layout1, W # Return layout group, width of layout
+
+    def DrawLayout2(self, staticOrAnimate):
+        W=800 # mm
+        Short_H=600 
+        Tall_H=1200
+
+        sections=[ # [BL, BR, TL, TR]
+            Rectangle(
+                width=W*U,
+                height=Short_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1),
+            Rectangle(
+                width=W*U,
+                height=Short_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1),
+            Rectangle(
+                width=W*U,
+                height=Tall_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1),
+            Rectangle(
+                width=W*U,
+                height=Tall_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1)
+        ]
+
+        # Moving sections into correct positions
+        # Ignoring 210mm offset therefor 110mm offset is just a 100mm shift to the right
+        sections[0].shift(DOWN*(Short_H/2)*U + LEFT*(W/2)*U + RIGHT*(100)*U) # BL
+        sections[1].shift(DOWN*(Short_H/2)*U + RIGHT*(W/2+100)*U) # BR
+        sections[2].shift(UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
+        sections[3].shift(UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
+
+        
+        # Rocks
+        Layouts.R1Pos[0]=[(W/2+110)*U,(-Short_H/2)*U,0]
+        Layouts.R2Pos[0]=[W/2*U,Tall_H/2*U,0]
+        R1=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
+        R2=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
+        R1.move_to(Layouts.R1Pos[0])
+        R2.move_to(Layouts.R2Pos[0])
+        
+        Layout2=VGroup(*sections, R1, R2)
+        Layout2.shift(DOWN*(H-Tall_H)/2*U)
+
+        # Draw
+        if staticOrAnimate==STATIC:
+            self.add(Layout2)
+        elif staticOrAnimate==ANIMATE:
+            self.play(DrawBorderThenFill(Layout2, lag_ratio=0.15))
+
+        return Layout2, W # Return layout group, width of layout
 
 class Kobuki(Scene):
     # == KOBUKI VARIABLES ==
@@ -212,6 +267,9 @@ class Kobuki(Scene):
         else: 
             return False
 
+    def UpdateCliff(layout):
+        print("hoi doi")
+
 # Testing Point detection
 class PointInsidePolygon(Scene):
     size=1
@@ -315,18 +373,7 @@ class MarsRoverNavigation(Scene):
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
         return Layout1
 
-    def updateUS_View(self, detected):
-        if detected==True:
-            Kobuki.US_View.set_color(RED).set_fill(color=RED,opacity=0.5)
-        else:
-            Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
-
-    def MissionCompleted(self, layout):
-        self.play(FadeOut(Kobuki.US_View),FadeOut(MarsRoverNavigation.rover),FadeOut(layout))
-        self.play(FadeIn(Text("Mission Completed")))
-        self.wait(2)
-
-    def construct(self):
+    def runLayout1(self):
         # Init stuff
         layout=MarsRoverNavigation.SetTest1(self)
         layout_num=0 # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 ... etc.
@@ -374,3 +421,38 @@ class MarsRoverNavigation(Scene):
                     state=State.SEARCH
         
         MarsRoverNavigation.MissionCompleted(self,layout)
+
+    def SetTest2(self):
+        Layout2, W = Layouts.DrawLayout2(self,STATIC)
+        roverStartPos=[
+            U*(-W+100+225+Kobuki.Radius),
+            U*(-H/2+Kobuki.Radius),
+            0
+        ]
+        roverStartAngle=0
+
+        # Draw the Kobuki
+        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+        return Layout2
+
+    def runLayout2(self):
+        # Init stuff
+        layout=MarsRoverNavigation.SetTest2(self)
+        layout_num=0 # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 ... etc.
+        DIR=CCW
+
+        state=State.IDLE
+
+    def updateUS_View(self, detected):
+        if detected==True:
+            Kobuki.US_View.set_color(RED).set_fill(color=RED,opacity=0.5)
+        else:
+            Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
+
+    def MissionCompleted(self, layout):
+        self.play(FadeOut(Kobuki.US_View),FadeOut(MarsRoverNavigation.rover),FadeOut(layout))
+        self.play(FadeIn(Text("Mission Completed")))
+        self.wait(2)
+
+    def construct(self):
+        MarsRoverNavigation.runLayout2(self)
