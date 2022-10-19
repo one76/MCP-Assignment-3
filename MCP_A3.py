@@ -133,7 +133,7 @@ class Kobuki(Scene):
         self.play(
             kobuki.animate.shift(distance*Kobuki.Kobuki_Y),
             Kobuki.US_View.animate.shift(distance*Kobuki.Kobuki_Y),
-            run_time=distance/speed,
+            run_time=abs(distance)/speed,
             rate_func=linear
         )
     
@@ -196,6 +196,7 @@ class Kobuki(Scene):
             MarsRoverNavigation.rover.get_center(),
             Layouts.R2Pos[layout_num]
         ) < (Kobuki.Radius+Layouts.RockRad)*U:
+            print(True)
             return True
         else: 
             return False
@@ -313,13 +314,13 @@ class MarsRoverNavigation(Scene):
         MarsRoverNavigation.SetTest1(self)
         layout_num=0 # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 ... etc.
         state=State.IDLE
-        
-        for _ in range(600):
+
+        for _ in range(200):
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
             MarsRoverNavigation.updateUS_View(self, detected)
 
-            #print(state.name)
+            print(state.name)
 
             match state:
                 case State.IDLE:
