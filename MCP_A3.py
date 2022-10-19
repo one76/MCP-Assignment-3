@@ -1,6 +1,6 @@
-from xml.etree.ElementTree import tostring
 from manim import *
 import random
+import math
 from enum import Enum
 
 # == UNIT CONVERSION FROM MM TO MUNIT ==
@@ -79,10 +79,14 @@ class Kobuki(Scene):
         US_ConeView_Height=1500*U
         US_ConeView_Base=600*U
 
+        # From Ultrasonic Sensor Data Sheet MB1043 at 3.3V Graph C
         Kobuki.US_View_Position_List=[
             kobuki.get_center(),
-            kobuki.get_center()+Kobuki.Kobuki_X*US_ConeView_Base/2+Kobuki.Kobuki_Y*US_ConeView_Height,
-            kobuki.get_center()-Kobuki.Kobuki_X*US_ConeView_Base/2+Kobuki.Kobuki_Y*US_ConeView_Height
+            kobuki.get_center()-Kobuki.Kobuki_X*50*U     +   Kobuki.Kobuki_Y*300*U,
+            kobuki.get_center()-Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
+            kobuki.get_center()+Kobuki.Kobuki_X*0       +   Kobuki.Kobuki_Y*US_ConeView_Height,
+            kobuki.get_center()+Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
+            kobuki.get_center()+Kobuki.Kobuki_X*50*U     +   Kobuki.Kobuki_Y*300*U
         ]
 
         Kobuki.US_View=Polygon(*Kobuki.US_View_Position_List)
@@ -270,7 +274,7 @@ class MarsRoverNavigation(Scene):
         if detected==True:
             Kobuki.US_View.set_color(RED).set_fill(color=RED,opacity=0.5)
         else:
-            Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.1)
+            Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
 
     def construct(self):
         MarsRoverNavigation.SetTest1(self)
@@ -283,22 +287,15 @@ class MarsRoverNavigation(Scene):
                 case State.IDLE:
                     self.wait(0.5)
                     state=State.SEARCH
-
                 case State.SEARCH:
                     if detected:
                         state=State.OBJECT
                         MarsRoverNavigation.updateUS_View(self, detected)
-                        #Kobuki.Rotate(self,MarsRoverNavigation.rover,11*CCW,ROTATE_SPEED)
                     else:
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*CCW,ROTATE_SPEED)
-
                 case State.OBJECT:
                     if detected:
                         Kobuki.Drive(self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED)
                     else:
                         MarsRoverNavigation.updateUS_View(self, detected)
                         state=State.IDLE
-
-        # Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED) # drive 200mm
-        # Kobuki.Rotate(self,MarsRoverNavigation.rover,-90,ROTATE_SPEED) # rotate 90˚
-        # Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED)
