@@ -12,7 +12,7 @@ U=6/H
 STATIC          = 0
 ANIMATE         = 1
 DRIVE_SPEED     = 150*U #mm/s
-ROTATE_SPEED    = 180 #deg/s
+ROTATE_SPEED    = 160 #deg/s
 CCW             = 1
 CW              = -1
 
@@ -129,7 +129,6 @@ class Kobuki(Scene):
         return kobuki
 
     def Drive(self, kobuki, distance, speed):
-        print(Kobuki.Kobuki_Y)
         self.play(
             kobuki.animate.shift(distance*Kobuki.Kobuki_Y),
             Kobuki.US_View.animate.shift(distance*Kobuki.Kobuki_Y),
@@ -146,14 +145,14 @@ class Kobuki(Scene):
             Rotate(
                 kobuki, 
                 angle_rad,
-                run_time=(angle/speed), 
+                run_time=angle/speed, 
                 rate_func=linear
             ),
             Rotate(
                 Kobuki.US_View, 
                 angle_rad,
                 about_point=kobuki.get_center(),
-                run_time=(angle/speed), 
+                run_time=angle/speed, 
                 rate_func=linear
             )
         )
@@ -189,14 +188,19 @@ class Kobuki(Scene):
         else: return False, 0
 
     def UpdateBumper(layout_num):     
-        if math.dist(
+        dist_kobuki_r1=math.dist(
             MarsRoverNavigation.rover.get_center(),
             Layouts.R1Pos[layout_num]
-        ) < (Kobuki.Radius+Layouts.RockRad)*U or math.dist(
+        )
+        dist_kobuki_r2=math.dist(
             MarsRoverNavigation.rover.get_center(),
             Layouts.R2Pos[layout_num]
-        ) < (Kobuki.Radius+Layouts.RockRad)*U:
-            print(True)
+        )
+        ERROR=20*U
+
+        if dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U or dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad-ERROR)*U:
+            return True
+        elif dist_kobuki_r2 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U or dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad-ERROR)*U:
             return True
         else: 
             return False
@@ -319,8 +323,6 @@ class MarsRoverNavigation(Scene):
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
             MarsRoverNavigation.updateUS_View(self, detected)
-
-            print(state.name)
 
             match state:
                 case State.IDLE:
