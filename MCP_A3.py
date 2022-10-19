@@ -1,5 +1,7 @@
+from re import X
 from turtle import fillcolor
 from manim import *
+import random
 
 # == UNIT CONVERSION FROM MM TO MUNIT ==
 # Height of layout is 6 munits
@@ -171,3 +173,80 @@ class MarsRoverNavigation(Scene):
        Kobuki.Drive (self,MarsRoverNavigation.rover,200*U,DRIVE_SPEED)
 
        self.wait(2)
+
+
+class TestPointInsidePolygon(Scene):
+    size=1
+    poly_points=[
+        [-size,size,0],
+        [size,size,0],
+        [size,-size,0],
+        [-size,-size,0]
+    ]
+    
+    def construct(self):
+        poly=Polygon(*TestPointInsidePolygon.poly_points)
+        self.add(poly)
+
+        for dot in range(20):
+            d_coord=[
+                random.uniform(-(TestPointInsidePolygon.size+2),TestPointInsidePolygon.size+2),
+                random.uniform(-(TestPointInsidePolygon.size+2),TestPointInsidePolygon.size+2),
+                0
+            ]
+            d=Dot(d_coord)
+
+            if TestPointInsidePolygon.point_inside_polygon(
+                d_coord[0],
+                d_coord[1],
+                TestPointInsidePolygon.poly_points
+            )==True:
+                d.set_color(GREEN)
+            else: 
+                d.set_color(RED)
+            
+            self.add(d)
+
+    def point_inside_polygon(x, y, poly, include_edges=True):
+        '''
+        Test if point (x,y) is inside polygon poly.
+
+        poly is N-vertices polygon defined as 
+        [(x1,y1),...,(xN,yN)] or [(x1,y1),...,(xN,yN),(x1,y1)]
+        (function works fine in both cases)
+
+        Geometrical idea: point is inside polygon if horisontal beam
+        to the right from point crosses polygon even number of times. 
+        Works fine for non-convex polygons.
+
+        code from:
+            https://stackoverflow.com/questions/39660851/deciding-if-a-point-is-inside-a-polygon
+        '''
+        n = len(poly)
+        inside = False
+
+        p1x, p1y, p1z = poly[0]
+        for i in range(1, n + 1):
+            p2x, p2y, p2z = poly[i % n]
+            if p1y == p2y:
+                if y == p1y:
+                    if min(p1x, p2x) <= x <= max(p1x, p2x):
+                        # point is on horisontal edge
+                        inside = include_edges
+                        break
+                    elif x < min(p1x, p2x):  # point is to the left from current edge
+                        inside = not inside
+            else:  # p1y!= p2y
+                if min(p1y, p2y) <= y <= max(p1y, p2y):
+                    xinters = (y - p1y) * (p2x - p1x) / float(p2y - p1y) + p1x
+
+                    if x == xinters:  # point is right on the edge
+                        inside = include_edges
+                        break
+
+                    if x < xinters:  # point is to the left from current edge
+                        inside = not inside
+
+            p1x, p1y = p2x, p2y
+
+        return inside
