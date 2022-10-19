@@ -372,7 +372,7 @@ class MarsRoverNavigation(Scene):
 
         # Draw the Kobuki
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
-        return Layout1
+        return Layout1, 0 # 0 ==> layout_num
 
     def SetTest2(self):
         Layout2, W = Layouts.DrawLayout2(self,STATIC)
@@ -385,7 +385,7 @@ class MarsRoverNavigation(Scene):
 
         # Draw the Kobuki
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
-        return Layout2
+        return Layout2, 1 # 1 ==> layout_num
 
     def viewLayout2(self):
         # Init stuff
@@ -408,9 +408,8 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout=MarsRoverNavigation.SetTest2(self)
-        # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 | Layout 3 => layout_num 2
-        layout_num=1 
+        layout, layout_num=MarsRoverNavigation.SetTest2(self)
+
         # Rotation direction
         DIR=CCW
 
