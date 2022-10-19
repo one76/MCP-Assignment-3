@@ -11,7 +11,7 @@ U=6/H
 
 STATIC          = 0
 ANIMATE         = 1
-DRIVE_SPEED     = 150*U #mm/s
+DRIVE_SPEED     = 250*U #mm/s
 ROTATE_SPEED    = 160 #deg/s
 CCW             = 1
 CW              = -1
@@ -204,8 +204,10 @@ class Kobuki(Scene):
         ERROR=20*U
 
         if dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U or dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad-ERROR)*U:
+            MarsRoverNavigation.mission[0]=True
             return True
         elif dist_kobuki_r2 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U or dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad-ERROR)*U:
+            MarsRoverNavigation.mission[1]=True
             return True
         else: 
             return False
@@ -298,6 +300,7 @@ class State(Enum):
 
 class MarsRoverNavigation(Scene):
     rover=Circle()
+    mission=[False,False] # mission=[collect rock 1, collect rock 2]
 
     def SetTest1(self):
         Layout1, W = Layouts.DrawLayout1(self,STATIC)
@@ -310,6 +313,7 @@ class MarsRoverNavigation(Scene):
 
         # Draw the Kobuki
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+        return Layout1
 
     def updateUS_View(self, detected):
         if detected==True:
@@ -317,18 +321,29 @@ class MarsRoverNavigation(Scene):
         else:
             Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
 
+    def MissionCompleted(self, layout):
+        self.play(FadeOut(Kobuki.US_View),FadeOut(MarsRoverNavigation.rover),FadeOut(layout))
+        self.play(FadeIn(Text("Mission Completed")))
+        self.wait(2)
+
     def construct(self):
         # Init stuff
-        MarsRoverNavigation.SetTest1(self)
+        layout=MarsRoverNavigation.SetTest1(self)
         layout_num=0 # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 ... etc.
         DIR=CCW
 
         state=State.IDLE
-        for _ in range(200):
+
+        WHILE_ESCAPE_COUNTER=200
+        while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
+            WHILE_ESCAPE_COUNTER-=1
+
+            # Update sensors
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
             MarsRoverNavigation.updateUS_View(self, detected)
-
+            
+            # FSM
             match state:
                 case State.IDLE:
                     state=State.SEARCH
@@ -357,3 +372,5 @@ class MarsRoverNavigation(Scene):
                     DIR = CW if DIR==CCW else CCW
                     Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
                     state=State.SEARCH
+        
+        MarsRoverNavigation.MissionCompleted(self,layout)
