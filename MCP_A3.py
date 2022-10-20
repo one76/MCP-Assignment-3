@@ -152,7 +152,11 @@ class Kobuki(Scene):
             kobuki.get_center(),
             kobuki.get_center()-Kobuki.Kobuki_X*50*U     +   Kobuki.Kobuki_Y*300*U,
             kobuki.get_center()-Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
+            kobuki.get_center()-Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*1200*U,
+            kobuki.get_center()-Kobuki.Kobuki_X*200*U   +   Kobuki.Kobuki_Y*(US_ConeView_Height-50*U),
             kobuki.get_center()+Kobuki.Kobuki_X*0       +   Kobuki.Kobuki_Y*US_ConeView_Height,
+            kobuki.get_center()+Kobuki.Kobuki_X*200*U   +   Kobuki.Kobuki_Y*(US_ConeView_Height-50*U),
+            kobuki.get_center()+Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*1200*U,
             kobuki.get_center()+Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
             kobuki.get_center()+Kobuki.Kobuki_X*50*U     +   Kobuki.Kobuki_Y*300*U
         ]
@@ -426,12 +430,7 @@ class MarsRoverNavigation(Scene):
         # for section in range(len(Layouts.L2and3_Positions)):
         #     self.add(Polygon(*Layouts.L2and3_Positions[section]))
         
-        cliff=Kobuki.UpdateCliff(layout_num)
-        print(cliff)
-        Kobuki.Drive(self,MarsRoverNavigation.rover,1500*U,DRIVE_SPEED)
-        cliff=Kobuki.UpdateCliff(layout_num)
-        print(cliff)
-        self.wait(1)
+
 
     def updateUS_View(self, detected):
         if detected==True:
@@ -448,7 +447,6 @@ class MarsRoverNavigation(Scene):
         # Init stuff
         layout, layout_num=MarsRoverNavigation.SetTest1(self)
         DIR=CCW
-        angle=None
         state=State.IDLE
 
         WHILE_ESCAPE_COUNTER=300
