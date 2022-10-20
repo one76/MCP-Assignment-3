@@ -459,7 +459,6 @@ class MarsRoverNavigation(Scene):
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
             cliff=Kobuki.UpdateCliff(layout_num)
-            print(state.name, cliff)
             MarsRoverNavigation.updateUS_View(self, detected)
 
             # FSM
