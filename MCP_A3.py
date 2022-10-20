@@ -401,6 +401,11 @@ class MarsRoverNavigation(Scene):
 
     def viewLayout2(self):
         layout, layout_num=MarsRoverNavigation.SetTest2(self)
+        
+        # View the polygon formed by layout.get_all_points()
+        # self.remove(layout)
+        # self.add(Polygon(*layout.get_all_points()))
+        
         cliff=Kobuki.UpdateCliff(layout,self)
         print(cliff)
         Kobuki.Drive(self,MarsRoverNavigation.rover,1500*U,DRIVE_SPEED)
@@ -426,7 +431,7 @@ class MarsRoverNavigation(Scene):
         angle=None
         state=State.IDLE
 
-        WHILE_ESCAPE_COUNTER=300
+        WHILE_ESCAPE_COUNTER=30
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
@@ -434,6 +439,7 @@ class MarsRoverNavigation(Scene):
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
             cliff=Kobuki.UpdateCliff(layout,self)
+            print(state.name, cliff)
             MarsRoverNavigation.updateUS_View(self, detected)
 
             # FSM
@@ -468,7 +474,6 @@ class MarsRoverNavigation(Scene):
                         state=State.SEARCH
 
                 case State.OBSTACLE:
-                    print(cliff)
                     if not (bumper or cliff):
                         state=State.AVOID
                     else:
@@ -483,5 +488,5 @@ class MarsRoverNavigation(Scene):
         if (MarsRoverNavigation.mission == [True, True]): MarsRoverNavigation.MissionCompleted(self,layout)
 
     def construct(self):
-        MarsRoverNavigation.testAlgorithm(self)
-        #MarsRoverNavigation.viewLayout2(self)
+        #MarsRoverNavigation.testAlgorithm(self)
+        MarsRoverNavigation.viewLayout2(self)
