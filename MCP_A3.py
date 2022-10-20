@@ -37,7 +37,7 @@ class Layouts(Scene):
                 color=WHITE
             ).set_fill(GOLD_A, opacity=1)
 
-        Layouts.L1_Positions[0]=L1.get_all_points()
+        Layouts.L1_Positions=L1.get_all_points()
 
         # Lines
         HLine=Line([U*(-W/2),U*(-H/2+600),0],[U*(W/2),U*(-H/2+600),0])
@@ -446,7 +446,7 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest2(self)
+        layout, layout_num=MarsRoverNavigation.SetTest1(self)
         DIR=CCW
         angle=None
         state=State.IDLE
