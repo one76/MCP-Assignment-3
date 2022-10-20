@@ -4,6 +4,8 @@ import random
 import math
 from enum import Enum
 
+from numpy import poly
+
 # == UNIT CONVERSION FROM MM TO MUNIT ==
 # Height of layout is 6 munits
 H=1800 #mm | Height of layouts
@@ -268,8 +270,18 @@ class Kobuki(Scene):
         else: 
             return False
 
-    def UpdateCliff(layout):
-        print("hoi doi")
+    def UpdateCliff(layout, self):
+        cliff=True
+        layout_points=layout.get_all_points()
+        pt=[
+            MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_Y[0]*Kobuki.Radius*U,
+            MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*Kobuki.Radius*U,
+            0
+        ]
+
+        if PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
+            cliff=False #if inside the layout, then don't set cliff flag
+        return cliff
 
 # Testing Point detection
 class PointInsidePolygon(Scene):
@@ -388,12 +400,13 @@ class MarsRoverNavigation(Scene):
         return Layout2, 1 # 1 ==> layout_num
 
     def viewLayout2(self):
-        # Init stuff
-        layout=MarsRoverNavigation.SetTest2(self)
-        layout_num=0 # Layout 1 => layout_num 0 | Layout 2 => layout_num 1 ... etc.
-        DIR=CCW
-
-        state=State.IDLE
+        layout, layout_num=MarsRoverNavigation.SetTest2(self)
+        cliff=Kobuki.UpdateCliff(layout,self)
+        print(cliff)
+        Kobuki.Drive(self,MarsRoverNavigation.rover,1500*U,DRIVE_SPEED)
+        cliff=Kobuki.UpdateCliff(layout,self)
+        print(cliff)
+        self.wait(1)
 
     def updateUS_View(self, detected):
         if detected==True:
@@ -420,6 +433,7 @@ class MarsRoverNavigation(Scene):
             # Update sensors
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
+            cliff=Kobuki.UpdateCliff(layout,self)
             MarsRoverNavigation.updateUS_View(self, detected)
 
             # FSM
@@ -437,7 +451,7 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
 
                 case State.OBJECT:
-                    if bumper:
+                    if bumper or cliff:
                         state=State.OBSTACLE
                     elif detected:
                         mm=0
@@ -454,7 +468,8 @@ class MarsRoverNavigation(Scene):
                         state=State.SEARCH
 
                 case State.OBSTACLE:
-                    if not bumper:
+                    print(cliff)
+                    if not (bumper or cliff):
                         state=State.AVOID
                     else:
                         Kobuki.Drive(self,MarsRoverNavigation.rover,-50*U,DRIVE_SPEED)
