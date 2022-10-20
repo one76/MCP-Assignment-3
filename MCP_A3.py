@@ -1,3 +1,4 @@
+from tkinter import N
 from charset_normalizer import detect
 from manim import *
 import random
@@ -24,6 +25,8 @@ def clamp(num, min_value, max_value):
 class Layouts(Scene):
     R1Pos=[[0,0,0],[0,0,0],[0,0,0]]
     R2Pos=[[0,0,0],[0,0,0],[0,0,0]]
+    L1_Positions=None
+    L2and3_Positions=None
     RockRad=40 # mm
 
     def DrawLayout1(self, staticOrAnimate):
@@ -33,6 +36,8 @@ class Layouts(Scene):
                 height=H*U,
                 color=WHITE
             ).set_fill(GOLD_A, opacity=1)
+
+        Layouts.L1_Positions[0]=L1.get_all_points()
 
         # Lines
         HLine=Line([U*(-W/2),U*(-H/2+600),0],[U*(W/2),U*(-H/2+600),0])
@@ -91,6 +96,9 @@ class Layouts(Scene):
         sections[2].shift(L2_ORIGIN + UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
         sections[3].shift(L2_ORIGIN + UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
 
+        Layouts.L2and3_Positions=[]
+        for section in sections:
+            Layouts.L2and3_Positions.append(section.get_all_points())
         
         # Rocks
         Layouts.R1Pos[1]=L2_ORIGIN + [(W/2+110)*U,(-Short_H/2)*U,0]
@@ -101,7 +109,6 @@ class Layouts(Scene):
         R2.move_to(Layouts.R2Pos[1])
         
         Layout2=VGroup(*sections, R1, R2)
-        #Layout2.shift(DOWN*(H-Tall_H)/2*U)
 
         # Draw
         if staticOrAnimate==STATIC:
@@ -270,17 +277,29 @@ class Kobuki(Scene):
         else: 
             return False
 
-    def UpdateCliff(layout, self):
+    def UpdateCliff(layout_num):
         cliff=True
-        layout_points=layout.get_all_points()
-        pt=[
-            MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_Y[0]*Kobuki.Radius*U,
-            MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*Kobuki.Radius*U,
-            0
-        ]
 
-        if PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
-            cliff=False #if inside the layout, then don't set cliff flag
+        if layout_num==0:
+            layout_points=Layouts.L1_Positions
+            pt=[
+                MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_Y[0]*Kobuki.Radius*U,
+                MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*Kobuki.Radius*U,
+                0
+            ]
+            if PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
+                cliff=False #if inside the layout, then don't set cliff flag
+        elif layout_num==1 or layout_num==2:
+            for section in range(len(Layouts.L2and3_Positions)):
+                layout_points=Layouts.L2and3_Positions[section]
+                pt=[
+                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_Y[0]*Kobuki.Radius*U,
+                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*Kobuki.Radius*U,
+                    0
+                ]
+                if PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
+                    cliff=False
+        
         return cliff
 
 # Testing Point detection
@@ -404,12 +423,13 @@ class MarsRoverNavigation(Scene):
         
         # View the polygon formed by layout.get_all_points()
         # self.remove(layout)
-        # self.add(Polygon(*layout.get_all_points()))
+        # for section in range(len(Layouts.L2and3_Positions)):
+        #     self.add(Polygon(*Layouts.L2and3_Positions[section]))
         
-        cliff=Kobuki.UpdateCliff(layout,self)
+        cliff=Kobuki.UpdateCliff(layout_num)
         print(cliff)
         Kobuki.Drive(self,MarsRoverNavigation.rover,1500*U,DRIVE_SPEED)
-        cliff=Kobuki.UpdateCliff(layout,self)
+        cliff=Kobuki.UpdateCliff(layout_num)
         print(cliff)
         self.wait(1)
 
@@ -431,14 +451,14 @@ class MarsRoverNavigation(Scene):
         angle=None
         state=State.IDLE
 
-        WHILE_ESCAPE_COUNTER=30
+        WHILE_ESCAPE_COUNTER=300
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
             # Update sensors
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
-            cliff=Kobuki.UpdateCliff(layout,self)
+            cliff=Kobuki.UpdateCliff(layout_num)
             print(state.name, cliff)
             MarsRoverNavigation.updateUS_View(self, detected)
 
@@ -488,5 +508,5 @@ class MarsRoverNavigation(Scene):
         if (MarsRoverNavigation.mission == [True, True]): MarsRoverNavigation.MissionCompleted(self,layout)
 
     def construct(self):
-        #MarsRoverNavigation.testAlgorithm(self)
-        MarsRoverNavigation.viewLayout2(self)
+        MarsRoverNavigation.testAlgorithm(self)
+        #MarsRoverNavigation.viewLayout2(self)
