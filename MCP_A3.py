@@ -101,7 +101,7 @@ class Layouts(Scene):
             Layouts.L2and3_Positions.append(section.get_all_points())
         
         # Rocks
-        Layouts.R1Pos[1]=L2_ORIGIN + [(W/2+110)*U,(-Short_H/2)*U,0]
+        Layouts.R1Pos[1]=L2_ORIGIN + [(W/2+100)*U,(-Short_H/2)*U,0]
         Layouts.R2Pos[1]=L2_ORIGIN + [W/2*U,Tall_H/2*U,0]
         R1=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
         R2=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
@@ -117,6 +117,74 @@ class Layouts(Scene):
             self.play(DrawBorderThenFill(Layout2, lag_ratio=0.15))
 
         return Layout2, W
+
+    def DrawLayout3(self, staticOrAnimate):
+        W=800 # mm
+        Short_H=600 
+        Tall_H=1200
+        L3_ORIGIN=ORIGIN+DOWN
+        sections=[ # [BL, BR, TL, TR]
+            Rectangle(
+                width=W*U,
+                height=Short_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1),
+            Rectangle(
+                width=W*U,
+                height=Short_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1),
+            Rectangle(
+                width=W*U,
+                height=Tall_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1),
+            Rectangle(
+                width=W*U,
+                height=Tall_H*U,
+                color=WHITE
+            ).set_fill(GOLD_A, opacity=1)
+        ]
+
+        # Moving sections into correct positions
+        # Ignoring 210mm offset therefor 110mm offset is just a 100mm shift to the right
+        sections[0].shift(L3_ORIGIN + DOWN*(Short_H/2)*U + LEFT*(W/2)*U + RIGHT*(100)*U) # BL
+        sections[1].shift(L3_ORIGIN + DOWN*(Short_H/2)*U + RIGHT*(W/2+100)*U) # BR
+        sections[2].shift(L3_ORIGIN + UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
+        sections[3].shift(L3_ORIGIN + UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
+
+        Layouts.L2and3_Positions=[
+            [L3_ORIGIN[0],L3_ORIGIN[1],0],
+            [L3_ORIGIN[0]-110*U,L3_ORIGIN[1],0],
+            [L3_ORIGIN[0]-110*U,L3_ORIGIN[1]+Tall_H*U,0],
+            [L3_ORIGIN[0]-110*U-W*U,L3_ORIGIN[1]+Tall_H*U,0],
+            [L3_ORIGIN[0]-110*U-W*U,L3_ORIGIN[1],0],
+            [L3_ORIGIN[0]-W*U+100*U,L3_ORIGIN[1],0],
+            [L3_ORIGIN[0]-W*U+100*U,L3_ORIGIN[1]-Short_H*U,0],
+            [L3_ORIGIN[0]+W*U+100*U,L3_ORIGIN[1]-Short_H*U,0],
+            [L3_ORIGIN[0]+W*U+100*U,L3_ORIGIN[1],0],
+            [L3_ORIGIN[0]+W*U,L3_ORIGIN[1],0],
+            [L3_ORIGIN[0]+W*U,L3_ORIGIN[1]+Tall_H*U,0],
+            [L3_ORIGIN[0],L3_ORIGIN[1]+Tall_H*U,0],
+        ]
+        
+        # Rocks
+        Layouts.R1Pos[2]=L3_ORIGIN + [(-W-110+Layouts.RockRad+50)*U,(Layouts.RockRad+50)*U,0]
+        Layouts.R2Pos[2]=L3_ORIGIN + [W/2*U,Tall_H/2*U,0]
+        R1=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
+        R2=Circle(radius=Layouts.RockRad*U, color=GREY_D).set_fill(GREY_C, opacity=1)
+        R1.move_to(Layouts.R1Pos[2])
+        R2.move_to(Layouts.R2Pos[2])
+        
+        Layout3=VGroup(*sections, R1, R2)
+
+        # Draw
+        if staticOrAnimate==STATIC:
+            self.add(Layout3)
+        elif staticOrAnimate==ANIMATE:
+            self.play(DrawBorderThenFill(Layout3, lag_ratio=0.15))
+
+        return Layout3, W
 
 class Kobuki(Scene):
     # == KOBUKI VARIABLES ==
@@ -281,29 +349,31 @@ class Kobuki(Scene):
         else: 
             return False
 
-    def UpdateCliff(layout_num):
-        cliff=True
-
+    def UpdateCliff(layout_num, self=None):
+        cliff=False
         if layout_num==0:
-            layout_points=Layouts.L1_Positions
-            pt=[
-                MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_Y[0]*Kobuki.Radius*U,
-                MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*Kobuki.Radius*U,
-                0
-            ]
-            if PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
-                cliff=False #if inside the layout, then don't set cliff flag
-        elif layout_num==1 or layout_num==2:
-            for section in range(len(Layouts.L2and3_Positions)):
-                layout_points=Layouts.L2and3_Positions[section]
+            for angle in range(-45,45):
+                theta=angle*PI/180
+                layout_points=Layouts.L1_Positions
                 pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_Y[0]*Kobuki.Radius*U,
-                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*Kobuki.Radius*U,
+                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius-20)*U*np.cos(theta),
+                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_X[1]*(Kobuki.Radius-20)*U*np.sin(theta),
                     0
                 ]
-                if PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
-                    cliff=False
-        
+                if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
+                    cliff=True
+                    break
+        elif layout_num==1 or layout_num==2:
+            for angle in range(0,360,2):
+                theta=angle*PI/180
+                layout_points=Layouts.L2and3_Positions
+                pt=[
+                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius-20)*U*np.sin(theta),
+                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*(Kobuki.Radius-20)*U*np.cos(theta),
+                    0
+                ]
+                if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
+                    cliff=True
         return cliff
 
 # Testing Point detection
@@ -422,6 +492,19 @@ class MarsRoverNavigation(Scene):
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
         return Layout2, 1 # 1 ==> layout_num
 
+    def SetTest3(self):
+        Layout3, W = Layouts.DrawLayout3(self,STATIC)
+        roverStartPos=[
+            U*(-W+100+225+Kobuki.Radius),
+            U*(-H/2+Kobuki.Radius),
+            0
+        ]
+        roverStartAngle=random.randrange(0,360)
+
+        # Draw the Kobuki
+        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+        return Layout3, 2 # 1 ==> layout_num
+
     def viewLayout2(self):
         layout, layout_num=MarsRoverNavigation.SetTest2(self)
         
@@ -429,7 +512,16 @@ class MarsRoverNavigation(Scene):
         # self.remove(layout)
         # for section in range(len(Layouts.L2and3_Positions)):
         #     self.add(Polygon(*Layouts.L2and3_Positions[section]))
-        
+
+    def viewLayout3(self):
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+        self.play(FadeOut(layout), FadeIn(Polygon(*Layouts.L2and3_Positions)))
+        # cliff=Kobuki.UpdateCliff(layout_num, self)
+        # print(cliff)
+        # Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
+        # cliff=Kobuki.UpdateCliff(layout_num, self)
+        # print(cliff)
+        # self.wait(2)
 
 
     def updateUS_View(self, detected):
@@ -445,11 +537,11 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
         state=State.IDLE
 
-        WHILE_ESCAPE_COUNTER=300
+        WHILE_ESCAPE_COUNTER=100
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
@@ -506,4 +598,4 @@ class MarsRoverNavigation(Scene):
 
     def construct(self):
         MarsRoverNavigation.testAlgorithm(self)
-        #MarsRoverNavigation.viewLayout2(self)
+        #MarsRoverNavigation.viewLayout3(self)
