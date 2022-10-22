@@ -205,10 +205,14 @@ class Layouts(Scene):
 
 class Kobuki(Scene):
     Radius=175                  # mm
+    current_angle=0             # in deg
     Kobuki_Y=np.array([0,0,0])  # direction of kobuki face (arrow)
     Kobuki_X=np.array([0,0,0])  # perpendicular to the right of the kobuki face (arrow)
-    
+
     US_View=None                # Mobject for the shape of the ultrasonic sensor's (US) 'cone' view
+
+    def setCurrAngle(angle):
+        Kobuki.current_angle=angle
 
     def UpdateKobukiFaceDirections(angle): # angle in degrees
         angle_rad=angle*DEGREES
@@ -239,8 +243,7 @@ class Kobuki(Scene):
             self.add(Kobuki.US_View)
 
     def DrawKobuki(self, startPos, startAngle, drawUSView):
-        # KOBUKI STARTS OFF FACING TO THE RIGHT
-        
+        # KOBUKI STARTS OFF FACING TO THE RIGHT (0 DEG)
         # Kobuki Parts
         kobuki_body=Circle(radius=Kobuki.Radius*U,color=GREY_E).set_fill(GREY_C, opacity=1)
         frontMarker=Arrow(
@@ -255,6 +258,7 @@ class Kobuki(Scene):
         kobuki.rotate(startAngle*DEGREES)
 
         # Update Kobuki Axis
+        Kobuki.setCurrAngle(startAngle)
         Kobuki.UpdateKobukiFaceDirections(startAngle)
     
         # Draw to Screen
@@ -276,7 +280,8 @@ class Kobuki(Scene):
         )
     
     def Rotate(self, kobuki, angle, speed, my_run_time=None):
-        Kobuki.UpdateKobukiFaceDirections(angle) # Update the relative X,Y kobuki face direction coordinates
+        Kobuki.current_angle=(Kobuki.current_angle+angle)%360 # Keeps angle within 0 => 360
+        Kobuki.UpdateKobukiFaceDirections(Kobuki.current_angle) # Update the relative X,Y kobuki face direction coordinates
         if angle>180: angle =- (360-angle) # Take shortest rotation
 
         if my_run_time==None: my_run_time=abs(angle)/speed

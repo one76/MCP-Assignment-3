@@ -713,26 +713,6 @@ State.SEARCH_R2
 	bumper: False
 	cliff: False
 State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
 	detected: True
 	bumper: False
 	cliff: False
@@ -742,40 +722,12 @@ State.OBJECT
 	cliff: False
 State.OBJECT
 	detected: True
-	bumper: False
-	cliff: False
-State.OBJECT
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R2
-	detected: True
-	bumper: False
-	cliff: False
-State.OBJECT
-	detected: True
-	bumper: False
+	bumper: True
 	cliff: False
 State.OBSTACLE
-	detected: False
-	bumper: False
-	cliff: True
+	detected: True
+	bumper: True
+	cliff: False
 State.OBSTACLE
 	detected: True
 	bumper: False
@@ -784,436 +736,47 @@ State.AVOID
 	detected: True
 	bumper: False
 	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
+State.SEARCH_R2
+	detected: True
 	bumper: False
 	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
+State.OBJECT
+	detected: True
 	bumper: False
 	cliff: False
-State.SEARCH_R1
+State.OBJECT
 	detected: False
 	bumper: False
 	cliff: False
-State.SEARCH_R1
+State.SEARCH_R2
 	detected: False
 	bumper: False
 	cliff: False
-State.SEARCH_R1
+State.SEARCH_R2
 	detected: False
 	bumper: False
 	cliff: False
-State.SEARCH_R1
+State.SEARCH_R2
 	detected: False
 	bumper: False
 	cliff: False
-State.SEARCH_R1
+State.SEARCH_R2
 	detected: False
 	bumper: False
 	cliff: False
-State.SEARCH_R1
+State.SEARCH_R2
 	detected: False
 	bumper: False
 	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
-	cliff: False
-State.SEARCH_R1
-	detected: False
+State.SEARCH_R2
+	detected: True
 	bumper: False
 	cliff: False
-State.SEARCH_R1
-	detected: False
+State.OBJECT
+	detected: True
 	bumper: False
 	cliff: False
-State.SEARCH_R1
-	detected: False
-	bumper: False
+State.OBJECT
+	detected: True
+	bumper: True
 	cliff: False
-ESCAPED WHILE LOOP
