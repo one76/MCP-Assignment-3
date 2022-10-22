@@ -39,6 +39,8 @@ CW              = -1
 # ==== MACROS ====
 
 
+# ==== MANIM SET-UP CLASSES AND FUNCTIONS ====
+
 class Layouts(Scene):
     R1Pos=[[0,0,0],[0,0,0],[0,0,0]] # Rock 1 position on screen
     R2Pos=[[0,0,0],[0,0,0],[0,0,0]] # Rock 2 position on screen
@@ -202,38 +204,26 @@ class Layouts(Scene):
         return Layout3
 
 class Kobuki(Scene):
-    # == KOBUKI VARIABLES ==
-    Radius=175 # mm
-    Circumference=2*PI*Radius # mm
-    current_angle=0 # in deg
+    Radius=175                  # mm
+    Circumference=2*PI*Radius   # mm
 
-    # Kobuki_Y is in direction of kobuki face (arrow)
-    # Kobuki_X is perpendicular to the right of the kobuki face (arrow)
-    Kobuki_Y=np.array([0,0,0])
-    Kobuki_X=np.array([0,0,0])
+    Kobuki_Y=np.array([0,0,0])  # direction of kobuki face (arrow)
+    Kobuki_X=np.array([0,0,0])  # perpendicular to the right of the kobuki face (arrow)
 
-    # Ultrasonic Sensor Mobject
-    US_View=None
-    US_View_Position_List=None
+    US_View=None                # Mobject for the shape of the ultrasonic sensor's (US) 'cone' view
+    US_View_Position_List=None  # Coordinates for the outline of the US's 'cone' view
 
-    # == METHODS ==
-
-    def setCurrAngle(angle):
-        Kobuki.current_angle=angle
-
-    def UpdateKobukiFaceDirections(angle):
-        angle_rad=angle*(PI/180)
+    def UpdateKobukiFaceDirections(angle): # angle in degrees
+        angle_rad=angle*DEGREES
         Kobuki.Kobuki_Y=np.array([np.cos(angle_rad),np.sin(angle_rad),0])
         Kobuki.Kobuki_X=np.array([np.cos(PI/2-angle_rad),-np.sin(PI/2-angle_rad),0])
 
     def DrawUS(self, kobuki, draw):
-        US_ConeView_Height=1500*U
-        US_ConeView_Base=600*U
-
         # From Ultrasonic Sensor Data Sheet MB1043 at 3.3V Graph C
+        US_ConeView_Height=1500*U
         Kobuki.US_View_Position_List=[
             kobuki.get_center(),
-            kobuki.get_center()-Kobuki.Kobuki_X*50*U     +   Kobuki.Kobuki_Y*300*U,
+            kobuki.get_center()-Kobuki.Kobuki_X*50*U    +   Kobuki.Kobuki_Y*300*U,
             kobuki.get_center()-Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
             kobuki.get_center()-Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*1200*U,
             kobuki.get_center()-Kobuki.Kobuki_X*200*U   +   Kobuki.Kobuki_Y*(US_ConeView_Height-50*U),
@@ -241,9 +231,10 @@ class Kobuki(Scene):
             kobuki.get_center()+Kobuki.Kobuki_X*200*U   +   Kobuki.Kobuki_Y*(US_ConeView_Height-50*U),
             kobuki.get_center()+Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*1200*U,
             kobuki.get_center()+Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
-            kobuki.get_center()+Kobuki.Kobuki_X*50*U     +   Kobuki.Kobuki_Y*300*U
+            kobuki.get_center()+Kobuki.Kobuki_X*50*U    +   Kobuki.Kobuki_Y*300*U
         ]
 
+        # Creating a Polygon Mobject
         Kobuki.US_View=Polygon(*Kobuki.US_View_Position_List)
         Kobuki.US_View.set_fill(color=BLUE_B,opacity=0.1)
 
@@ -264,10 +255,9 @@ class Kobuki(Scene):
         # Putting kobuki together
         kobuki=VGroup(kobuki_body,frontMarker)
         kobuki.move_to(startPos)
-        kobuki.rotate(startAngle*(PI/180))
+        kobuki.rotate(startAngle*DEGREES)
 
         # Update Kobuki Axis
-        Kobuki.setCurrAngle(startAngle)
         Kobuki.UpdateKobukiFaceDirections(startAngle)
     
         # Draw to Screen
@@ -289,10 +279,8 @@ class Kobuki(Scene):
         )
     
     def Rotate(self, kobuki, angle, speed, my_run_time=None):
-        Kobuki.current_angle=(Kobuki.current_angle+angle)%360
-        Kobuki.UpdateKobukiFaceDirections(Kobuki.current_angle)
-        if angle>180: angle =- (360-angle)
-        angle_rad=angle*(PI/180)
+        if angle>180: angle =- (360-angle) # Make kobuki rotate along the shortest arc
+        angle_rad=angle*DEGREES
 
         if my_run_time==None: my_run_time=abs(angle)/speed
 
@@ -467,7 +455,10 @@ class PointInsidePolygon(Scene):
 
         return inside
 
-# ===
+# ==== MANIM SET-UP CLASSES AND FUNCTIONS ====
+
+
+# ==== ALGORITHM AND FSM ==== 
 
 class State(Enum):
     IDLE        = 0
@@ -681,3 +672,5 @@ class MarsRoverNavigation(Scene):
     def construct(self):
         MarsRoverNavigation.testAlgorithm(self)
         #MarsRoverNavigation.viewLayout3(self)
+
+# ==== ALGORITHM AND FSM ====
