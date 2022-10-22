@@ -76,10 +76,11 @@ class Layouts(Scene):
         return Layout1 # Return layout group, width of layout
 
     def DrawLayout2(self, staticOrAnimate):
-        W=800 # mm
-        Short_H=600 
-        Tall_H=1200
+        W=800       # mm
+        Short_H=600 # mm
+        Tall_H=1200 # mm
         L2_ORIGIN=ORIGIN+DOWN
+
         sections=[ # [BL, BR, TL, TR]
             Rectangle(
                 width=W*U,
@@ -104,15 +105,26 @@ class Layouts(Scene):
         ]
 
         # Moving sections into correct positions
-        # Ignoring 210mm offset therefor 110mm offset is just a 100mm shift to the right
         sections[0].shift(L2_ORIGIN + DOWN*(Short_H/2)*U + LEFT*(W/2)*U + RIGHT*(100)*U) # BL
         sections[1].shift(L2_ORIGIN + DOWN*(Short_H/2)*U + RIGHT*(W/2+100)*U) # BR
         sections[2].shift(L2_ORIGIN + UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
         sections[3].shift(L2_ORIGIN + UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
 
-        Layouts.L2and3_Positions=[]
-        for section in sections:
-            Layouts.L2and3_Positions.append(section.get_all_points())
+        # Manually setting coordinates of the outline of layout 2
+        Layouts.L2and3_Positions=[
+            [L2_ORIGIN[0],L2_ORIGIN[1],0],
+            [L2_ORIGIN[0]-110*U,L2_ORIGIN[1],0],
+            [L2_ORIGIN[0]-110*U,L2_ORIGIN[1]+Tall_H*U,0],
+            [L2_ORIGIN[0]-110*U-W*U,L2_ORIGIN[1]+Tall_H*U,0],
+            [L2_ORIGIN[0]-110*U-W*U,L2_ORIGIN[1],0],
+            [L2_ORIGIN[0]-W*U+100*U,L2_ORIGIN[1],0],
+            [L2_ORIGIN[0]-W*U+100*U,L2_ORIGIN[1]-Short_H*U,0],
+            [L2_ORIGIN[0]+W*U+100*U,L2_ORIGIN[1]-Short_H*U,0],
+            [L2_ORIGIN[0]+W*U+100*U,L2_ORIGIN[1],0],
+            [L2_ORIGIN[0]+W*U,L2_ORIGIN[1],0],
+            [L2_ORIGIN[0]+W*U,L2_ORIGIN[1]+Tall_H*U,0],
+            [L2_ORIGIN[0],L2_ORIGIN[1]+Tall_H*U,0],
+        ]
         
         # Rocks
         Layouts.R1Pos[1]=L2_ORIGIN + [(W/2+100)*U,(-Short_H/2)*U,0]
@@ -123,20 +135,16 @@ class Layouts(Scene):
         R2.move_to(Layouts.R2Pos[1])
         
         Layout2=VGroup(*sections, R1, R2)
+        self.add(Layout2)
 
-        # Draw
-        if staticOrAnimate==STATIC:
-            self.add(Layout2)
-        elif staticOrAnimate==ANIMATE:
-            self.play(DrawBorderThenFill(Layout2, lag_ratio=0.15))
-
-        return Layout2, W
+        return Layout2
 
     def DrawLayout3(self, staticOrAnimate):
-        W=800 # mm
-        Short_H=600 
-        Tall_H=1200
+        W=800       # mm
+        Short_H=600 # mm
+        Tall_H=1200 # mm
         L3_ORIGIN=ORIGIN+DOWN
+
         sections=[ # [BL, BR, TL, TR]
             Rectangle(
                 width=W*U,
@@ -161,12 +169,12 @@ class Layouts(Scene):
         ]
 
         # Moving sections into correct positions
-        # Ignoring 210mm offset therefor 110mm offset is just a 100mm shift to the right
         sections[0].shift(L3_ORIGIN + DOWN*(Short_H/2)*U + LEFT*(W/2)*U + RIGHT*(100)*U) # BL
         sections[1].shift(L3_ORIGIN + DOWN*(Short_H/2)*U + RIGHT*(W/2+100)*U) # BR
         sections[2].shift(L3_ORIGIN + UP*(Tall_H/2)*U + LEFT*(W/2+100)*U) #TL
         sections[3].shift(L3_ORIGIN + UP*(Tall_H/2)*U + RIGHT*(W/2)*U)
 
+        # Manually setting coordinates of the outline of layout 3
         Layouts.L2and3_Positions=[
             [L3_ORIGIN[0],L3_ORIGIN[1],0],
             [L3_ORIGIN[0]-110*U,L3_ORIGIN[1],0],
@@ -191,14 +199,9 @@ class Layouts(Scene):
         R2.move_to(Layouts.R2Pos[2])
         
         Layout3=VGroup(*sections, R1, R2)
+        self.add(Layout3)
 
-        # Draw
-        if staticOrAnimate==STATIC:
-            self.add(Layout3)
-        elif staticOrAnimate==ANIMATE:
-            self.play(DrawBorderThenFill(Layout3, lag_ratio=0.15))
-
-        return Layout3, W
+        return Layout3
 
 class Kobuki(Scene):
     # == KOBUKI VARIABLES ==
@@ -555,7 +558,7 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+        layout, layout_num=MarsRoverNavigation.SetTest2(self)
         DIR=CCW
         state=State.SEARCH_R1
         layout3=False
@@ -563,7 +566,7 @@ class MarsRoverNavigation(Scene):
         objectRanges=[0,0]
         objectAngles=[0,0]
 
-        WHILE_ESCAPE_COUNTER=30
+        WHILE_ESCAPE_COUNTER=300
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
