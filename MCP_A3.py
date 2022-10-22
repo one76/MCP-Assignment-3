@@ -655,7 +655,7 @@ class MarsRoverNavigation(Scene):
         output.close()
 
     def construct(self):
-        MarsRoverNavigation.testAlgorithm(self)
-        #MarsRoverNavigation.viewLayout3(self)
+        #MarsRoverNavigation.testAlgorithm(self)
+        MarsRoverNavigation.viewLayout3(self)
 
 # ==== ALGORITHM AND FSM ====
