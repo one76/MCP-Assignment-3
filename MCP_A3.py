@@ -17,36 +17,44 @@ import math
 # ==== IMPORTS ====
 
 
+# ==== DEBUGGING OUTPUT FILE ====
 output = open("output.txt","w")
 output.write(Red+"===== START =====\n"+Color_Off)
+# ==== DEBUGGING OUTPUT FILE ====
 
-# == UNIT CONVERSION FROM MM TO MUNIT ==
+
+# ==== UNIT CONVERSION ====
+# Manim uses "munits"
 # Height of layout is 6 munits
-H=1800 #mm | Height of layouts
-U=6/H
+H=1800  # mm | Height of layouts
+U=6/H   # Use U to convert from mm to munits
+# ==== UNIT CONVERSION ====
 
+
+# ==== MACROS ====
 STATIC          = 0
 ANIMATE         = 1
-DRIVE_SPEED     = 250*U #mm/s
-ROTATE_SPEED    = 200 #deg/s
+DRIVE_SPEED     = 250*U # mm/s  | Kinda broken
+ROTATE_SPEED    = 200   # deg/s | Kinda broken
 CCW             = 1
 CW              = -1
+# ==== MACROS ====
+
 
 class Layouts(Scene):
-    R1Pos=[[0,0,0],[0,0,0],[0,0,0]]
-    R2Pos=[[0,0,0],[0,0,0],[0,0,0]]
-    L1_Positions=None
-    L2and3_Positions=None
-    RockRad=40 # mm
+    R1Pos=[[0,0,0],[0,0,0],[0,0,0]] # Rock 1 position on screen
+    R2Pos=[[0,0,0],[0,0,0],[0,0,0]] # Rock 2 position on screen
+    L1_Positions=None       # Layout 1 outline coordinates
+    L2and3_Positions=None   # Layout 2 and 3 outline coordinates
+    RockRad=40 # mm. Estimated rock radius
 
     def DrawLayout1(self, staticOrAnimate):
         W=1600 # mm
         L1=Rectangle(
-                width=W*U,
-                height=H*U,
-                color=WHITE
-            ).set_fill(GOLD_A, opacity=1)
-
+            width=W*U,
+            height=H*U,
+            color=WHITE
+        ).set_fill(GOLD_A, opacity=1)
         Layouts.L1_Positions=L1.get_all_points()
 
         # Lines
@@ -64,12 +72,8 @@ class Layouts(Scene):
         Layout1=VGroup(L1, HLine, VLine, R1, R2)
 
         # Draw
-        if staticOrAnimate==STATIC:
-            self.add(Layout1)
-        elif staticOrAnimate==ANIMATE:
-            self.play(DrawBorderThenFill(Layout1, lag_ratio=0.15))
-
-        return Layout1, W # Return layout group, width of layout
+        self.add(Layout1)
+        return Layout1 # Return layout group, width of layout
 
     def DrawLayout2(self, staticOrAnimate):
         W=800 # mm
@@ -481,9 +485,9 @@ class MarsRoverNavigation(Scene):
     mission=[False,False] # mission=[collect rock 1, collect rock 2]
 
     def SetTest1(self):
-        Layout1, W = Layouts.DrawLayout1(self,STATIC)
+        Layout1 = Layouts.DrawLayout1(self,STATIC)
         roverStartPos=[
-            U*(-W/2+225+Kobuki.Radius),
+            U*(-800+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
             0
         ]
@@ -494,9 +498,9 @@ class MarsRoverNavigation(Scene):
         return Layout1, 0 # 0 ==> layout_num
 
     def SetTest2(self):
-        Layout2, W = Layouts.DrawLayout2(self,STATIC)
+        Layout2 = Layouts.DrawLayout2(self,STATIC)
         roverStartPos=[
-            U*(-W+100+225+Kobuki.Radius),
+            U*(-800+100+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
             0
         ]
@@ -509,7 +513,7 @@ class MarsRoverNavigation(Scene):
     def SetTest3(self):
         Layout3, W = Layouts.DrawLayout3(self,STATIC)
         roverStartPos=[
-            U*(-W+100+225+Kobuki.Radius),
+            U*(-800+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
             0
         ]
