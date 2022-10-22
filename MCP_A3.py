@@ -281,8 +281,8 @@ class Kobuki(Scene):
     
     def Rotate(self, kobuki, angle, speed, my_run_time=None):
         Kobuki.current_angle=(Kobuki.current_angle+angle)%360 # Keeps angle within 0 => 360
-        Kobuki.UpdateKobukiFaceDirections(Kobuki.current_angle) # Update the relative X,Y kobuki face direction coordinates
         if angle>180: angle =- (360-angle) # Take shortest rotation
+        Kobuki.UpdateKobukiFaceDirections(Kobuki.current_angle) # Update the relative X,Y kobuki face direction coordinates
 
         if my_run_time==None: my_run_time=abs(angle)/speed
         self.play(
@@ -302,6 +302,7 @@ class Kobuki(Scene):
         )
 
     def UpdateDetection(layout_num):
+        # Detection Conditions for Ultrasonic Sensor
         detectRock1=PointInsidePolygon.point_inside_polygon(
             Layouts.R1Pos[layout_num][0],
             Layouts.R1Pos[layout_num][1],
@@ -314,7 +315,7 @@ class Kobuki(Scene):
         )
 
         if detectRock1 : 
-            distance=(
+            distance=( # Distance from edge of kobuki to edge of rock
                 math.dist(
                     Layouts.R1Pos[layout_num],
                     MarsRoverNavigation.rover.get_center()
@@ -341,7 +342,8 @@ class Kobuki(Scene):
             Layouts.R2Pos[layout_num]
         )
 
-        ERROR=20*U
+        # Rock Collection Conditions
+        ERROR=20*U # To stop the kobuki and rock overlapping 
         if dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U:
             MarsRoverNavigation.mission[0]=True
             return True
@@ -379,24 +381,23 @@ class Kobuki(Scene):
                     cliff=True
         return cliff
 
-# Testing Point detection
-class PointInsidePolygon(Scene):
-    size=1
-    poly_points=[
-        [-size,size,0],
-        [size,size,0],
-        [size,-size,0],
-        [-size,-size,0]
-    ]
-    
-    def construct(self):
-        poly=Polygon(*PointInsidePolygon.poly_points)
+class PointInsidePolygon(Scene):    
+    def construct(self): # Visual for testing the point inside polygon function
+        size=1
+        poly_points=[
+            [-size,size,0],
+            [size,size,0],
+            [size,-size,0],
+            [-size,-size,0]
+        ]
+
+        poly=Polygon(*poly_points)
         self.add(poly)
 
         for dot in range(20):
             d_coord=[
-                random.uniform(-(PointInsidePolygon.size+2),PointInsidePolygon.size+2),
-                random.uniform(-(PointInsidePolygon.size+2),PointInsidePolygon.size+2),
+                random.uniform(-(size+2),size+2),
+                random.uniform(-(size+2),size+2),
                 0
             ]
             d=Dot(d_coord)
