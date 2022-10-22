@@ -458,9 +458,11 @@ class PointInsidePolygon(Scene):
 class State(Enum):
     IDLE        = 0
     SEARCH      = 1
-    OBJECT      = 2
-    OBSTACLE    = 3
-    AVOID       = 4
+    SEARCH_R1   = 2
+    SEARCH_R2   = 3
+    OBJECT      = 4
+    OBSTACLE    = 5
+    AVOID       = 6
 
 class MarsRoverNavigation(Scene):
     rover=Circle()
@@ -507,7 +509,6 @@ class MarsRoverNavigation(Scene):
 
     def viewLayout2(self):
         layout, layout_num=MarsRoverNavigation.SetTest2(self)
-        
         # View the polygon formed by layout.get_all_points()
         # self.remove(layout)
         # for section in range(len(Layouts.L2and3_Positions)):
@@ -540,6 +541,7 @@ class MarsRoverNavigation(Scene):
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
         state=State.SEARCH
+        layout3=False
         detectObjectCounter=0
         objectRanges=[0,0]
         objectAngles=[0,0]
@@ -582,7 +584,6 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
                         objectAngles[0]+=2*DIR
                     
-
                 case State.OBJECT:
                     if bumper or cliff:
                         state=State.OBSTACLE
