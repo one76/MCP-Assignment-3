@@ -475,7 +475,7 @@ class State(Enum):
     AVOID       = 6
 
 class MarsRoverNavigation(Scene):
-    rover=Circle()
+    rover=None
     mission=[False,False] # mission=[collect rock 1, collect rock 2]
 
     def SetTest1(self):
@@ -486,10 +486,9 @@ class MarsRoverNavigation(Scene):
             0
         ]
         roverStartAngle=90
-
-        # Draw the Kobuki
+        
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
-        return Layout1, 0 # 0 ==> layout_num
+        return Layout1, 0 # layout_num
 
     def SetTest2(self):
         Layout2 = Layouts.DrawLayout2(self)
@@ -500,9 +499,8 @@ class MarsRoverNavigation(Scene):
         ]
         roverStartAngle=0
 
-        # Draw the Kobuki
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
-        return Layout2, 1 # 1 ==> layout_num
+        return Layout2, 1 # layout_num
 
     def SetTest3(self):
         Layout3 = Layouts.DrawLayout3(self)
@@ -513,9 +511,8 @@ class MarsRoverNavigation(Scene):
         ]
         roverStartAngle=random.randrange(0,360)
 
-        # Draw the Kobuki
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
-        return Layout3, 2 # 1 ==> layout_num
+        return Layout3, 2 # layout_num
 
     def viewLayout2(self):
         layout, layout_num=MarsRoverNavigation.SetTest2(self)
