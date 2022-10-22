@@ -352,24 +352,24 @@ class Kobuki(Scene):
     def UpdateCliff(layout_num, self=None):
         cliff=False
         if layout_num==0:
-            for angle in range(-45,45):
+            for angle in range(-20,20,10):
                 theta=angle*PI/180
                 layout_points=Layouts.L1_Positions
                 pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius-20)*U*np.cos(theta),
-                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_X[1]*(Kobuki.Radius-20)*U*np.sin(theta),
+                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius+20)*U*np.cos(theta),
+                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*(Kobuki.Radius+20)*U*np.sin(theta),
                     0
                 ]
                 if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
                     cliff=True
                     break
         elif layout_num==1 or layout_num==2:
-            for angle in range(0,360,2):
+            for angle in range(-20,20,10):
                 theta=angle*PI/180
                 layout_points=Layouts.L2and3_Positions
                 pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius-20)*U*np.sin(theta),
-                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*(Kobuki.Radius-20)*U*np.cos(theta),
+                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius*1.3)*U*np.sin(theta),
+                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*(Kobuki.Radius*1.3)*U*np.cos(theta),
                     0
                 ]
                 if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
@@ -539,9 +539,9 @@ class MarsRoverNavigation(Scene):
         # Init stuff
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
-        state=State.IDLE
+        state=State.SEARCH
 
-        WHILE_ESCAPE_COUNTER=100
+        WHILE_ESCAPE_COUNTER=300
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
@@ -554,7 +554,7 @@ class MarsRoverNavigation(Scene):
             # FSM
             match state:
                 case State.IDLE:
-                    state=State.SEARCH
+                    self.wait(2)
 
                 case State.SEARCH:
                     if detected:
@@ -564,6 +564,8 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
                     elif not detected and not bumper:
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
+                    elif bumper or cliff:
+                        state=State.IDLE
 
                 case State.OBJECT:
                     if bumper or cliff:
@@ -575,7 +577,9 @@ class MarsRoverNavigation(Scene):
                             mm+=step
                             # Update sensors
                             bumper=Kobuki.UpdateBumper(layout_num)
-                            if bumper:
+                            cliff=Kobuki.UpdateCliff(layout_num)
+
+                            if bumper or cliff:
                                 state=State.OBSTACLE
                                 break
                             Kobuki.Drive(self,MarsRoverNavigation.rover,step*U,DRIVE_SPEED,0.01)
