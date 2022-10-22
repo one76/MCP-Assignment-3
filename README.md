@@ -14,5 +14,5 @@ Algorithm:
    2. Drive right to go into the right-half of the layout
    3. Search for the second rock
    4. Drive to the second rock
-9. Stop approximately 85 mm before rock (210/2- **Rock Radius**:40/2)
+9. Stop approximately 85 mm before rock (210/2- *Rock Radius*:40/2)
 

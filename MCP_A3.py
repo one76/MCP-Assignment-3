@@ -1,12 +1,21 @@
+#  =========================
+# |    MCP Assignment 3     |
+# |   Michael and Michael   |
+#  =========================
+
+
+# ==== IMPORTS ====
+from manim import *
 from tkinter import N
 from charset_normalizer import detect
-from manim import *
-import random
-import math
 from enum import Enum
 from pathlib import Path
-
 from numpy import poly
+import random
+import math
+# ==== IMPORTS ====
+
+
 output = open("output.txt","w")
 output.write("===== START =====\n")
 output.close()
@@ -369,11 +378,12 @@ class Kobuki(Scene):
                     break
         elif layout_num==1 or layout_num==2:
             for angle in range(-20,20,10):
-                theta=angle*PI/180
+                beta=np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0])
+                theta=angle*PI/180+beta
                 layout_points=Layouts.L2and3_Positions
                 pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius*1.3)*U*np.sin(theta),
-                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*(Kobuki.Radius*1.3)*U*np.cos(theta),
+                    MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.sin(theta),
+                    MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.cos(theta),
                     0
                 ]
                 if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
@@ -543,7 +553,7 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
         state=State.SEARCH_R1
         layout3=False
