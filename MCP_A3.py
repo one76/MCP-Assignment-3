@@ -11,16 +11,14 @@ from charset_normalizer import detect
 from enum import Enum
 from pathlib import Path
 from numpy import poly
+from ANSI_COLOR_ESCAPE_CODES import *
 import random
 import math
 # ==== IMPORTS ====
 
 
 output = open("output.txt","w")
-output.write("===== START =====\n")
-output.close()
-
-output = open("output.txt","a")
+output.write(Red+"===== START =====\n"+Color_Off)
 
 # == UNIT CONVERSION FROM MM TO MUNIT ==
 # Height of layout is 6 munits
@@ -561,7 +559,7 @@ class MarsRoverNavigation(Scene):
         objectRanges=[0,0]
         objectAngles=[0,0]
 
-        WHILE_ESCAPE_COUNTER=300
+        WHILE_ESCAPE_COUNTER=30
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
@@ -659,9 +657,9 @@ class MarsRoverNavigation(Scene):
                     else:
                         if (layout3==True):
                             Kobuki.Rotate(self,MarsRoverNavigation.rover,100*CW,ROTATE_SPEED)
-                            Kobuki.Drive(self,MarsRoverNavigation.rover,300*U,DRIVE_SPEED)
+                            Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
                             Kobuki.Rotate(self,MarsRoverNavigation.rover,90*CCW,ROTATE_SPEED)
-                            Kobuki.Drive(self,MarsRoverNavigation.rover,400*U,DRIVE_SPEED)
+                            Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
                             DIR=CCW
                             state=State.SEARCH_R2
                         else:
