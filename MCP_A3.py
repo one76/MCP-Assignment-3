@@ -25,9 +25,6 @@ ROTATE_SPEED    = 200 #deg/s
 CCW             = 1
 CW              = -1
 
-def clamp(num, min_value, max_value):
-   return max(min(num, max_value), min_value)
-
 class Layouts(Scene):
     R1Pos=[[0,0,0],[0,0,0],[0,0,0]]
     R2Pos=[[0,0,0],[0,0,0],[0,0,0]]
@@ -520,6 +517,7 @@ class MarsRoverNavigation(Scene):
         # self.remove(layout)
         # for section in range(len(Layouts.L2and3_Positions)):
         #     self.add(Polygon(*Layouts.L2and3_Positions[section]))
+        pass
 
     def viewLayout3(self):
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
@@ -530,7 +528,7 @@ class MarsRoverNavigation(Scene):
         # cliff=Kobuki.UpdateCliff(layout_num, self)
         # print(cliff)
         # self.wait(2)
-
+        pass
 
     def updateUS_View(self, detected):
         if detected==True:
