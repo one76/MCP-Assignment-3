@@ -32,8 +32,6 @@ U=6/H   # Use U to convert from mm to munits
 
 
 # ==== MACROS ====
-STATIC          = 0
-ANIMATE         = 1
 DRIVE_SPEED     = 250*U # mm/s  | Kinda broken
 ROTATE_SPEED    = 200   # deg/s | Kinda broken
 CCW             = 1
@@ -48,7 +46,7 @@ class Layouts(Scene):
     L2and3_Positions=None   # Layout 2 and 3 outline coordinates
     RockRad=40 # mm. Estimated rock radius
 
-    def DrawLayout1(self, staticOrAnimate):
+    def DrawLayout1(self):
         W=1600 # mm
         L1=Rectangle(
             width=W*U,
@@ -75,7 +73,7 @@ class Layouts(Scene):
         self.add(Layout1)
         return Layout1 # Return layout group, width of layout
 
-    def DrawLayout2(self, staticOrAnimate):
+    def DrawLayout2(self):
         W=800       # mm
         Short_H=600 # mm
         Tall_H=1200 # mm
@@ -139,7 +137,7 @@ class Layouts(Scene):
 
         return Layout2
 
-    def DrawLayout3(self, staticOrAnimate):
+    def DrawLayout3(self):
         W=800       # mm
         Short_H=600 # mm
         Tall_H=1200 # mm
@@ -252,7 +250,7 @@ class Kobuki(Scene):
         if draw==True:
             self.add(Kobuki.US_View)
 
-    def DrawKobuki(self, staticOrAnimate, startPos, startAngle, drawUSView):
+    def DrawKobuki(self, startPos, startAngle, drawUSView):
         # KOBUKI STARTS OFF FACING TO THE RIGHT
         
         # Kobuki Parts
@@ -273,10 +271,7 @@ class Kobuki(Scene):
         Kobuki.UpdateKobukiFaceDirections(startAngle)
     
         # Draw to Screen
-        if staticOrAnimate==STATIC:
-            self.add(kobuki)
-        elif staticOrAnimate==ANIMATE:
-            self.play(DrawBorderThenFill(kobuki))
+        self.add(kobuki)
 
         # Draw Ultrasonic Sensor Cone
         if drawUSView==True:
@@ -488,7 +483,7 @@ class MarsRoverNavigation(Scene):
     mission=[False,False] # mission=[collect rock 1, collect rock 2]
 
     def SetTest1(self):
-        Layout1 = Layouts.DrawLayout1(self,STATIC)
+        Layout1 = Layouts.DrawLayout1(self)
         roverStartPos=[
             U*(-800+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
@@ -497,11 +492,11 @@ class MarsRoverNavigation(Scene):
         roverStartAngle=90
 
         # Draw the Kobuki
-        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
         return Layout1, 0 # 0 ==> layout_num
 
     def SetTest2(self):
-        Layout2 = Layouts.DrawLayout2(self,STATIC)
+        Layout2 = Layouts.DrawLayout2(self)
         roverStartPos=[
             U*(-800+100+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
@@ -510,11 +505,11 @@ class MarsRoverNavigation(Scene):
         roverStartAngle=0
 
         # Draw the Kobuki
-        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
         return Layout2, 1 # 1 ==> layout_num
 
     def SetTest3(self):
-        Layout3, W = Layouts.DrawLayout3(self,STATIC)
+        Layout3, W = Layouts.DrawLayout3(self)
         roverStartPos=[
             U*(-800+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
@@ -523,7 +518,7 @@ class MarsRoverNavigation(Scene):
         roverStartAngle=random.randrange(0,360)
 
         # Draw the Kobuki
-        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,STATIC,roverStartPos,roverStartAngle,True)
+        MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
         return Layout3, 2 # 1 ==> layout_num
 
     def viewLayout2(self):
