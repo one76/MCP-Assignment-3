@@ -302,6 +302,9 @@ class Kobuki(Scene):
         )
 
     def UpdateDetection(layout_num):
+        detected=False
+        distance=0
+        
         # Detection Conditions for Ultrasonic Sensor
         detectRock1=PointInsidePolygon.point_inside_polygon(
             Layouts.R1Pos[layout_num][0],
@@ -321,7 +324,7 @@ class Kobuki(Scene):
                     MarsRoverNavigation.rover.get_center()
                 ) - (Kobuki.Radius + Layouts.RockRad)*U
             )/U # distance in mm
-            return True, distance
+            detected = True
         elif detectRock2 : 
             distance=(
                 math.dist(
@@ -329,10 +332,15 @@ class Kobuki(Scene):
                     MarsRoverNavigation.rover.get_center()
                 ) - (Kobuki.Radius + Layouts.RockRad)*U
             )/U # distance in mm
-            return True, distance
-        else: return False, 0
+            detected = True
+        
+        output.write("\tdetected: "+str(detected)+"\n") # Debugging Log
+        output.write("\trange: "+str(distance)+"\n") # Debugging Log
+        return detected, distance
 
     def UpdateBumper(layout_num):     
+        bumper = False
+
         dist_kobuki_r1=math.dist( #distance from kobuki to rock 1
             MarsRoverNavigation.rover.get_center(),
             Layouts.R1Pos[layout_num]
@@ -346,12 +354,15 @@ class Kobuki(Scene):
         ERROR=20*U # To stop the kobuki and rock overlapping 
         if dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U:
             MarsRoverNavigation.mission[0]=True
-            return True
+            bumper = True
         elif dist_kobuki_r2 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U:
             MarsRoverNavigation.mission[1]=True
-            return True
+            bumper = True
         else: 
-            return False
+            bumper = False
+
+        output.write("\tbumper: "+str(bumper)+"\n")
+        return bumper
 
     def UpdateCliff(layout_num, self=None):
         cliff=False
@@ -361,16 +372,16 @@ class Kobuki(Scene):
             layout_points=Layouts.L2and3_Positions
 
         # Check for cliff at points around the face of the kobuki (the arrow)
-        for angle in range(-20,20,10):
-            # Trig to get the correct coordinates for the specified angles
-            theta=angle*PI/180+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0])
+        for angle in range(-20,20,10):     
+            theta=angle*PI/180+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0]) # Trig to get the correct coordinates for the specified angles
             pt=[
                 MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.sin(theta),
                 MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.cos(theta),
                 0
             ]
-            if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
-                cliff=True
+            if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points): cliff=True
+
+        output.write("\tcliff: "+str(cliff)+"\n")
         return cliff
 
 class PointInsidePolygon(Scene):    
@@ -508,22 +519,10 @@ class MarsRoverNavigation(Scene):
 
     def viewLayout2(self):
         layout, layout_num=MarsRoverNavigation.SetTest2(self)
-        # View the polygon formed by layout.get_all_points()
-        # self.remove(layout)
-        # for section in range(len(Layouts.L2and3_Positions)):
-        #     self.add(Polygon(*Layouts.L2and3_Positions[section]))
-        pass
 
     def viewLayout3(self):
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
         self.play(FadeOut(layout), FadeIn(Polygon(*Layouts.L2and3_Positions)))
-        # cliff=Kobuki.UpdateCliff(layout_num, self)
-        # print(cliff)
-        # Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
-        # cliff=Kobuki.UpdateCliff(layout_num, self)
-        # print(cliff)
-        # self.wait(2)
-        pass
 
     def updateUS_View(self, detected):
         if detected==True:
@@ -554,12 +553,9 @@ class MarsRoverNavigation(Scene):
             detected, dist=Kobuki.UpdateDetection(layout_num)
             bumper=Kobuki.UpdateBumper(layout_num)
             cliff=Kobuki.UpdateCliff(layout_num)
-            MarsRoverNavigation.updateUS_View(self, detected)
-            
-            output.write(str(state)+"\n")
-            output.write("\tdetected: "+str(detected)+"\n")
-            output.write("\tbumper: "+str(bumper)+"\n")
-            output.write("\tcliff: "+str(cliff)+"\n")
+
+            MarsRoverNavigation.updateUS_View(self, detected) # Update the ultrasonic sensor view 
+            output.write(str(state)+"\n") # Debug log
 
             # FSM
             match state:
@@ -568,7 +564,6 @@ class MarsRoverNavigation(Scene):
 
                 case State.SEARCH_R1:
                     if detected:
-                        output.write("\tDIST:"+str(dist)+"\n")
                         if not (int(objectRanges[0])==int(dist)):
                             objectRanges[1]=objectRanges[0]
                             objectRanges[0]=dist
