@@ -540,6 +540,9 @@ class MarsRoverNavigation(Scene):
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
         state=State.SEARCH
+        detectObjectCounter=0
+        objectRanges=[0,0]
+        objectAngles=[0,0]
 
         WHILE_ESCAPE_COUNTER=300
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
@@ -550,7 +553,7 @@ class MarsRoverNavigation(Scene):
             bumper=Kobuki.UpdateBumper(layout_num)
             cliff=Kobuki.UpdateCliff(layout_num)
             MarsRoverNavigation.updateUS_View(self, detected)
-
+            print(state)
             # FSM
             match state:
                 case State.IDLE:
@@ -558,14 +561,27 @@ class MarsRoverNavigation(Scene):
 
                 case State.SEARCH:
                     if detected:
-                        state=State.OBJECT
-                        angle = -11 if CCW else 11
-                        og_distance=dist
-                        Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
-                    elif not detected and not bumper:
-                        Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
+                        print("DIST:",dist)
+                        if not (objectRanges[0]-1<=dist<=objectRanges[0]+1):
+                            objectRanges[1]=objectRanges[0]
+                            objectRanges[0]=dist
+                            objectAngles[1]=objectAngles[0]
+                            objectAngles[0]=-11 if CCW else 11
+                            detectObjectCounter+=1
+                        if (detectObjectCounter%2 == 0):
+                            state = State.OBJECT
+                            if (objectRanges[0]<objectRanges[1]):
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[0]*-DIR,ROTATE_SPEED,0.5)
+                            else:
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[1]*-DIR,ROTATE_SPEED,0.5)
+
                     elif bumper or cliff:
-                        state=State.IDLE
+                        state=State.OBJECT
+
+                    if (not detected or (detectObjectCounter%2 != 0)) and not bumper:
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
+                        objectAngles[0]+=2*DIR
+                    
 
                 case State.OBJECT:
                     if bumper or cliff:
