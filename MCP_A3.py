@@ -356,29 +356,21 @@ class Kobuki(Scene):
     def UpdateCliff(layout_num, self=None):
         cliff=False
         if layout_num==0:
-            for angle in range(-20,20,10):
-                theta=angle*PI/180
-                layout_points=Layouts.L1_Positions
-                pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + Kobuki.Kobuki_X[0]*(Kobuki.Radius+20)*U*np.cos(theta),
-                    MarsRoverNavigation.rover.get_center()[1] + Kobuki.Kobuki_Y[1]*(Kobuki.Radius+20)*U*np.sin(theta),
-                    0
-                ]
-                if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
-                    cliff=True
-                    break
-        elif layout_num==1 or layout_num==2:
-            for angle in range(-20,20,10):
-                beta=np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0])
-                theta=angle*PI/180+beta
-                layout_points=Layouts.L2and3_Positions
-                pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.sin(theta),
-                    MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.cos(theta),
-                    0
-                ]
-                if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
-                    cliff=True
+            layout_points=Layouts.L1_Positions  
+        else:
+            layout_points=Layouts.L2and3_Positions
+
+        # Check for cliff at points around the face of the kobuki (the arrow)
+        for angle in range(-20,20,10):
+            # Trig to get the correct coordinates for the specified angles
+            theta=angle*PI/180+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0])
+            pt=[
+                MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.sin(theta),
+                MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.cos(theta),
+                0
+            ]
+            if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points):
+                cliff=True
         return cliff
 
 class PointInsidePolygon(Scene):    
@@ -502,7 +494,7 @@ class MarsRoverNavigation(Scene):
         return Layout2, 1 # 1 ==> layout_num
 
     def SetTest3(self):
-        Layout3, W = Layouts.DrawLayout3(self)
+        Layout3 = Layouts.DrawLayout3(self)
         roverStartPos=[
             U*(-800+225+Kobuki.Radius),
             U*(-H/2+Kobuki.Radius),
@@ -546,7 +538,7 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
         state=State.SEARCH_R1
         layout3=False
