@@ -205,13 +205,10 @@ class Layouts(Scene):
 
 class Kobuki(Scene):
     Radius=175                  # mm
-    Circumference=2*PI*Radius   # mm
-
     Kobuki_Y=np.array([0,0,0])  # direction of kobuki face (arrow)
     Kobuki_X=np.array([0,0,0])  # perpendicular to the right of the kobuki face (arrow)
-
+    
     US_View=None                # Mobject for the shape of the ultrasonic sensor's (US) 'cone' view
-    US_View_Position_List=None  # Coordinates for the outline of the US's 'cone' view
 
     def UpdateKobukiFaceDirections(angle): # angle in degrees
         angle_rad=angle*DEGREES
@@ -221,7 +218,7 @@ class Kobuki(Scene):
     def DrawUS(self, kobuki, draw):
         # From Ultrasonic Sensor Data Sheet MB1043 at 3.3V Graph C
         US_ConeView_Height=1500*U
-        Kobuki.US_View_Position_List=[
+        Kobuki.US_View_Position_List=[ # Coordinates for the outline of the US's 'cone' view
             kobuki.get_center(),
             kobuki.get_center()-Kobuki.Kobuki_X*50*U    +   Kobuki.Kobuki_Y*300*U,
             kobuki.get_center()-Kobuki.Kobuki_X*300*U   +   Kobuki.Kobuki_Y*900*U,
@@ -279,21 +276,20 @@ class Kobuki(Scene):
         )
     
     def Rotate(self, kobuki, angle, speed, my_run_time=None):
-        if angle>180: angle =- (360-angle) # Make kobuki rotate along the shortest arc
-        angle_rad=angle*DEGREES
+        Kobuki.UpdateKobukiFaceDirections(angle) # Update the relative X,Y kobuki face direction coordinates
+        if angle>180: angle =- (360-angle) # Take shortest rotation
 
         if my_run_time==None: my_run_time=abs(angle)/speed
-
         self.play(
             Rotate(
                 kobuki, 
-                angle_rad,
+                angle*DEGREES,
                 run_time=my_run_time,
                 rate_func=linear
             ),
             Rotate(
                 Kobuki.US_View, 
-                angle_rad,
+                angle*DEGREES,
                 about_point=kobuki.get_center(),
                 run_time=my_run_time,
                 rate_func=linear
@@ -331,20 +327,20 @@ class Kobuki(Scene):
         else: return False, 0
 
     def UpdateBumper(layout_num):     
-        dist_kobuki_r1=math.dist(
+        dist_kobuki_r1=math.dist( #distance from kobuki to rock 1
             MarsRoverNavigation.rover.get_center(),
             Layouts.R1Pos[layout_num]
         )
-        dist_kobuki_r2=math.dist(
+        dist_kobuki_r2=math.dist( #distance from kobuki to rock 2
             MarsRoverNavigation.rover.get_center(),
             Layouts.R2Pos[layout_num]
         )
-        ERROR=20*U
 
-        if dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U or dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad-ERROR)*U:
+        ERROR=20*U
+        if dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U:
             MarsRoverNavigation.mission[0]=True
             return True
-        elif dist_kobuki_r2 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U or dist_kobuki_r1 <= (Kobuki.Radius+Layouts.RockRad-ERROR)*U:
+        elif dist_kobuki_r2 <= (Kobuki.Radius+Layouts.RockRad+ERROR)*U:
             MarsRoverNavigation.mission[1]=True
             return True
         else: 
@@ -544,7 +540,7 @@ class MarsRoverNavigation(Scene):
 
     def testAlgorithm(self):
         # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest2(self)
+        layout, layout_num=MarsRoverNavigation.SetTest1(self)
         DIR=CCW
         state=State.SEARCH_R1
         layout3=False
@@ -597,7 +593,6 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
                         objectAngles[0]+=2*DIR
                     
-
                 case State.SEARCH_R2:
                     angle=0
                     if detected:
