@@ -4,8 +4,14 @@ from manim import *
 import random
 import math
 from enum import Enum
+from pathlib import Path
 
 from numpy import poly
+output = open("output.txt","w")
+output.write("===== START =====\n")
+output.close()
+
+output = open("output.txt","a")
 
 # == UNIT CONVERSION FROM MM TO MUNIT ==
 # Height of layout is 6 munits
@@ -540,7 +546,7 @@ class MarsRoverNavigation(Scene):
         # Init stuff
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
         DIR=CCW
-        state=State.SEARCH
+        state=State.SEARCH_R1
         layout3=False
         detectObjectCounter=0
         objectRanges=[0,0]
@@ -555,15 +561,20 @@ class MarsRoverNavigation(Scene):
             bumper=Kobuki.UpdateBumper(layout_num)
             cliff=Kobuki.UpdateCliff(layout_num)
             MarsRoverNavigation.updateUS_View(self, detected)
-            print(state)
+            
+            output.write(str(state)+"\n")
+            output.write("\tdetected: "+str(detected)+"\n")
+            output.write("\tbumper: "+str(bumper)+"\n")
+            output.write("\tcliff: "+str(cliff)+"\n")
+
             # FSM
             match state:
                 case State.IDLE:
                     self.wait(2)
 
-                case State.SEARCH:
+                case State.SEARCH_R1:
                     if detected:
-                        print("DIST:",dist)
+                        output.write("\tDIST:"+str(dist)+"\n")
                         if not (objectRanges[0]-1<=dist<=objectRanges[0]+1):
                             objectRanges[1]=objectRanges[0]
                             objectRanges[0]=dist
@@ -573,9 +584,11 @@ class MarsRoverNavigation(Scene):
                         if (detectObjectCounter%2 == 0):
                             state = State.OBJECT
                             if (objectRanges[0]<objectRanges[1]):
-                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[0]*-DIR,ROTATE_SPEED,0.5)
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[0]*-DIR+11*-DIR,ROTATE_SPEED,0.5)
+                                objectAngles[1]+=objectAngles[0]*-DIR
                             else:
-                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[1]*-DIR,ROTATE_SPEED,0.5)
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[1]*-DIR+11*-DIR,ROTATE_SPEED,0.5)
+                                objectAngles[0]+=objectAngles[1]*-DIR
 
                     elif bumper or cliff:
                         state=State.OBJECT
@@ -584,6 +597,21 @@ class MarsRoverNavigation(Scene):
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*DIR,ROTATE_SPEED,0.01)
                         objectAngles[0]+=2*DIR
                     
+
+                case State.SEARCH_R2:
+                    angle=0
+                    if detected:
+                        state=State.OBJECT
+                        angle=11
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,angle*DIR,ROTATE_SPEED,0.5)
+                    elif not detected and not bumper:
+                        angle=2
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,angle*DIR,ROTATE_SPEED,0.01)
+                    if (objectRanges[0]<objectRanges[1]):
+                        objectAngles[1]+=angle
+                    else:
+                        objectAngles[0]+=angle
+
                 case State.OBJECT:
                     if bumper or cliff:
                         state=State.OBSTACLE
@@ -598,10 +626,12 @@ class MarsRoverNavigation(Scene):
 
                             if bumper or cliff:
                                 state=State.OBSTACLE
+                                if cliff and MarsRoverNavigation.mission[0]==True:
+                                    layout3=True
                                 break
                             Kobuki.Drive(self,MarsRoverNavigation.rover,step*U,DRIVE_SPEED,0.01)
                     else:
-                        state=State.SEARCH
+                        state=State.SEARCH_R2
 
                 case State.OBSTACLE:
                     if not (bumper or cliff):
@@ -612,10 +642,31 @@ class MarsRoverNavigation(Scene):
                 case State.AVOID:
                     #DIR = CW if DIR==CCW else CCW
                     Kobuki.Rotate(self,MarsRoverNavigation.rover,11*DIR,ROTATE_SPEED,0.5)
-                    state=State.SEARCH
+                    objectAngles[0]+=11*DIR
+                    objectAngles[1]+=11*DIR
+                    if (MarsRoverNavigation.mission[0]!=True):
+                        state=State.SEARCH_R1
+                    else:
+                        if (layout3==True):
+                            Kobuki.Rotate(self,MarsRoverNavigation.rover,100*CW,ROTATE_SPEED)
+                            Kobuki.Drive(self,MarsRoverNavigation.rover,300*U,DRIVE_SPEED)
+                            Kobuki.Rotate(self,MarsRoverNavigation.rover,90*CCW,ROTATE_SPEED)
+                            Kobuki.Drive(self,MarsRoverNavigation.rover,400*U,DRIVE_SPEED)
+                            DIR=CCW
+                            state=State.SEARCH_R2
+                        else:
+                            DIR = CW if DIR==CCW else CCW
+                            state=State.SEARCH_R2
+                            if (objectRanges[0]<objectRanges[1]):
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[1]*DIR,ROTATE_SPEED,0.5)
+                                objectAngles[0]+=objectAngles[1]*DIR
+                            else:
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[0]*DIR,ROTATE_SPEED,0.5)
+                                objectAngles[1]+=objectAngles[0]*DIR
         
-        if (WHILE_ESCAPE_COUNTER<=0): print("ESCAPED WHILE LOOP")
+        if (WHILE_ESCAPE_COUNTER<=0): output.write("ESCAPED WHILE LOOP")
         if (MarsRoverNavigation.mission == [True, True]): MarsRoverNavigation.MissionCompleted(self,layout)
+        output.close()
 
     def construct(self):
         MarsRoverNavigation.testAlgorithm(self)
