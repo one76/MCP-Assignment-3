@@ -580,7 +580,7 @@ class MarsRoverNavigation(Scene):
             # FSM
             match state:
                 case State.SEARCH:
-                    if detected and found_new_rock:
+                    if detected and (found_new_rock or found_both_rocks):
                         state=MarsRoverNavigation.updateState(state,State.FOUND)
                     elif bumper or cliff:
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
@@ -758,7 +758,7 @@ class MarsRoverNavigation(Scene):
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
-        layout, layout_num=MarsRoverNavigation.SetTest2(self)
+        layout, layout_num=MarsRoverNavigation.SetTest1(self)
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
         if (MarsRoverNavigation.mission == [True, True]): 

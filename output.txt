@@ -1,7 +1,70 @@
 [0;31m===== START =====
 [0m[4;35mState.SEARCH
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 0
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 0
@@ -9,7 +72,7 @@
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.FOUND
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 0
@@ -17,98 +80,112 @@
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.SEARCH
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: False
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.85031571456085
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: True
+	range: 382.85031571456085
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: False
+[0m	detected: True
+	range: 382.85031571456085
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
@@ -163,8 +240,869 @@
 	[0;34mobject counter: 1
 [0m	[0;34mfound_both_rocks: False
 [0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 1
+[0m	[0;34mfound_both_rocks: False
+[0m	[0;34mfound_new_rock: True
 [0m	detected: True
-	range: 1026.219158730641
+	range: 1085.2403623945843
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
@@ -172,7 +1110,7 @@
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.FOUND
 [0m	detected: True
-	range: 1026.219158730641
+	range: 1085.2403623945843
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 1
@@ -180,8 +1118,74 @@
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.SEARCH
 [0m[4;35mState.ROCK
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m[4;35mState.SEARCH
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
 [0m	detected: True
-	range: 594.7067370350824
+	range: 382.8503157145606
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: False
+[0m[4;35mState.FOUND
+[0m	detected: True
+	range: 382.8503157145606
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: False
+[0m[4;35mState.ROCK
+[0m	detected: True
+	range: 382.8503157145606
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 3
@@ -190,218 +1194,248 @@
 [0m	bumper: False
 	cliff: False
 	detected: True
-	range: 594.7067370350824
+	range: 382.8503157145606
 	bumper: False
 	cliff: False
 	detected: True
-	range: 574.7074586214648
+	range: 363.4612319696611
 	bumper: False
 	cliff: False
 	detected: True
-	range: 554.7082177063882
+	range: 344.11518829639766
 	bumper: False
 	cliff: False
-	detected: True
-	range: 534.7090172907865
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 514.7098607045743
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 494.7107516529968
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 474.711694271044
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 454.71269318761324
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 434.7137536015216
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 414.71488137199907
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 394.71608312699385
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 374.7173663935086
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 354.71873975538836
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 334.72021304554573
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 314.72179758172354
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 294.72350645775094
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 274.7253549061527
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 254.7273607533731
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 234.72954499643652
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 214.73193254059464
+	detected: False
+	range: 0
+	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 194.73455315294862
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m[4;35mState.SEARCH
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 174.73744270960006
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 154.7406448474269
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 134.74421318238183
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 114.74821433471887
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 94.7527321256553
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 74.7578735111098
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 54.76377715336917
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
-	detected: True
-	range: 34.77062610808531
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
 	bumper: False
 	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	detected: True
+	range: 15.809310551296395
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m[4;35mState.FOUND
+[0m	detected: True
+	range: 15.809310551296395
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m[4;35mState.ROCK
+[0m	detected: True
+	range: 15.809310551296395
+	bumper: False
+	cliff: False
+	[0;34mobject counter: 3
+[0m	[0;34mfound_both_rocks: True
+[0m	[0;34mfound_new_rock: True
+[0m	bumper: False
+	cliff: False
 	detected: True
-	range: 14.778667131649213
-	detected: True
-	range: -5.21175897784557
+	range: 15.809310551296395
+	detected: False
+	range: 0
 	bumper: True
 	cliff: False
 	[0;34mobject counter: 3
 [0m	[0;34mfound_both_rocks: True
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.OBSTACLE
-[0m	detected: True
-	range: -5.21175897784557
+[0m	detected: False
+	range: 0
 	bumper: True
 	cliff: False
 	[0;34mobject counter: 3
 [0m	[0;34mfound_both_rocks: True
 [0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
+[0m	detected: True
+	range: 901.4529287813132
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 3
 [0m	[0;34mfound_both_rocks: True
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.SEARCH
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
 [0m	detected: True
-	range: 752.0109788184488
+	range: 901.4529287813132
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 3
@@ -409,7 +1443,7 @@
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.FOUND
 [0m	detected: True
-	range: 752.0109788184488
+	range: 901.4529287813132
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 3
@@ -417,7 +1451,7 @@
 [0m	[0;34mfound_new_rock: True
 [0m[4;35mState.ROCK
 [0m	detected: True
-	range: 752.0109788184488
+	range: 901.4529287813132
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 3
@@ -426,366 +1460,169 @@
 [0m	bumper: False
 	cliff: False
 	detected: True
-	range: 752.0109788184488
+	range: 901.4529287813132
 	bumper: False
 	cliff: False
 	detected: True
-	range: 732.8962448135084
+	range: 881.4670629430329
 	bumper: False
 	cliff: False
 	detected: True
-	range: 713.8187921805235
+	range: 861.4817221176913
 	bumper: False
 	cliff: False
 	detected: True
-	range: 694.7809662131993
+	range: 841.4969360996837
 	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	detected: False
-	range: 0
-	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m[4;35mState.SEARCH
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: True
-	range: 158.37675013856887
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m[4;35mState.FOUND
-[0m	detected: True
-	range: 158.37675013856887
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m[4;35mState.ROCK
-[0m	detected: True
-	range: 158.37675013856887
-	bumper: False
-	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	bumper: False
 	cliff: False
 	detected: True
-	range: 158.37675013856887
+	range: 821.512736980385
 	bumper: False
 	cliff: False
-	detected: False
-	range: 0
+	detected: True
+	range: 801.5291593737575
 	bumper: False
 	cliff: False
-	detected: False
-	range: 0
+	detected: True
+	range: 781.5462406690757
 	bumper: False
 	cliff: False
-	detected: False
-	range: 0
-	detected: False
-	range: 0
+	detected: True
+	range: 761.5640213146378
 	bumper: False
 	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m[4;35mState.SEARCH
-[0m	detected: False
-	range: 0
+	detected: True
+	range: 741.5825451369922
 	bumper: False
 	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
+	detected: True
+	range: 721.6018597009697
 	bumper: False
 	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: False
-	range: 0
+	detected: True
+	range: 701.6220167167404
 	bumper: False
 	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m	detected: True
-	range: 80.23348658196579
+	detected: True
+	range: 681.6430725012119
 	bumper: False
 	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m[4;35mState.FOUND
-[0m	detected: True
-	range: 80.23348658196579
+	detected: True
+	range: 661.6650885024239
 	bumper: False
 	cliff: False
-	[0;34mobject counter: 3
-[0m	[0;34mfound_both_rocks: True
-[0m	[0;34mfound_new_rock: True
-[0m[4;35mState.ROCK
-[0m	detected: True
-	range: 80.23348658196579
+	detected: True
+	range: 641.6881318971986
+	bumper: False
+	cliff: False
+	detected: True
+	range: 621.7122762742646
+	bumper: False
+	cliff: False
+	detected: True
+	range: 601.7376024174536
+	bumper: False
+	cliff: False
+	detected: True
+	range: 581.7641992064903
+	bumper: False
+	cliff: False
+	detected: True
+	range: 561.7921646564857
+	bumper: False
+	cliff: False
+	detected: True
+	range: 541.8216071216904
+	bumper: False
+	cliff: False
+	detected: True
+	range: 521.8526466945799
+	bumper: False
+	cliff: False
+	detected: True
+	range: 501.88541683825366
+	bumper: False
+	cliff: False
+	detected: True
+	range: 481.92006629878716
+	bumper: False
+	cliff: False
+	detected: True
+	range: 461.9567613551512
+	bumper: False
+	cliff: False
+	detected: True
+	range: 441.9956884782459
+	bumper: False
+	cliff: False
+	detected: True
+	range: 422.0370574884585
+	bumper: False
+	cliff: False
+	detected: True
+	range: 402.08110532417277
+	bumper: False
+	cliff: False
+	detected: True
+	range: 382.1281005635659
+	bumper: False
+	cliff: False
+	detected: True
+	range: 362.17834888117665
+	bumper: False
+	cliff: False
+	detected: True
+	range: 342.23219967240817
+	bumper: False
+	cliff: False
+	detected: True
+	range: 322.2900541479433
+	bumper: False
+	cliff: False
+	detected: True
+	range: 302.3523752925554
+	bumper: False
+	cliff: False
+	detected: True
+	range: 282.4197002083837
+	bumper: False
+	cliff: False
+	detected: True
+	range: 262.4926555350852
+	bumper: False
+	cliff: False
+	detected: True
+	range: 242.57197687849805
+	bumper: False
+	cliff: False
+	detected: True
+	range: 222.65853351562333
+	bumper: False
+	cliff: False
+	detected: True
+	range: 202.75336012244728
+	bumper: False
+	cliff: False
+	detected: True
+	range: 182.85769796265646
+	bumper: False
+	cliff: False
+	detected: True
+	range: 162.97304898986332
+	bumper: False
+	cliff: False
+	detected: True
+	range: 143.1012478297763
+	bumper: False
+	cliff: False
+	detected: True
+	range: 123.24455890936672
+	bumper: False
+	cliff: False
+	detected: True
+	range: 103.40580956750976
+	detected: True
+	range: 83.58857563692972
 	bumper: False
 	cliff: False
 	[0;34mobject counter: 3
