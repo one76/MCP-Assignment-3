@@ -656,7 +656,7 @@ class MarsRoverNavigation(Scene):
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
         if (MarsRoverNavigation.mission == [True, True]): 
