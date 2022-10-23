@@ -573,9 +573,6 @@ class MarsRoverNavigation(Scene):
             found_both_rocks    = detectObjectCounter>=2
             found_new_rock      = not int(objectRanges[0])==int(dist)            
             collecting_1st_rock = MarsRoverNavigation.mission[0] == False
-            output.write("\t"+Blue+"object counter: " + str(detectObjectCounter) + "\n" + Color_Off)
-            output.write("\t"+Blue+"found_both_rocks: " + str(found_both_rocks) + "\n" + Color_Off)
-            output.write("\t"+Blue+"found_new_rock: " + str(found_new_rock) + "\n" + Color_Off)
 
             # FSM
             match state:
