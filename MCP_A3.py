@@ -601,7 +601,7 @@ class MarsRoverNavigation(Scene):
                             Kobuki.Rotate(
                                 self,
                                 MarsRoverNavigation.rover,
-                                objectAngles[closestRock] - Kobuki.current_angle,
+                                0.8*(objectAngles[closestRock] - Kobuki.current_angle),
                                 ROTATE_SPEED,
                                 0.5
                             )
@@ -631,7 +631,7 @@ class MarsRoverNavigation(Scene):
                     if not (bumper or cliff):
                         state=MarsRoverNavigation.updateState(state,State.SEARCH)
                     else:
-                        Kobuki.Drive(self,MarsRoverNavigation.rover,-50*U,DRIVE_SPEED)
+                        Kobuki.Drive(self,MarsRoverNavigation.rover,-80*U,DRIVE_SPEED)
                     
                     # Should only be entered if collecting the first rock
                     if bumper:
@@ -758,7 +758,7 @@ class MarsRoverNavigation(Scene):
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest2(self)
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
         if (MarsRoverNavigation.mission == [True, True]): 
