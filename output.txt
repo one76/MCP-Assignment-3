@@ -1,2 +1,1552 @@
 [0;31m===== START =====
-[0m
+[0m	detected: True
+	range: 1085.2403623945843
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 1085.2403623945843
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 1085.2403623945843
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 1085.2403623945843
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 1085.2403623945843
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 1085.2403623945843
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 449.5487190567746
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 449.5487190567746
+	bumper: False
+	cliff: False
+State.OBJECT
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: True
+	detected: False
+	range: 0
+	bumper: False
+	cliff: True
+State.OBSTACLE
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.OBSTACLE
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.AVOID
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014018
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014012
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014004
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100014004
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 971.9221154909644
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 179.44657100013984
+	bumper: False
+	cliff: False
+State.OBJECT
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: True
+	detected: False
+	range: 0
+	bumper: False
+	cliff: True
+State.OBSTACLE
+	detected: True
+	range: 189.2662531979081
+	bumper: False
+	cliff: False
+State.OBSTACLE
+	detected: True
+	range: 189.2662531979081
+	bumper: False
+	cliff: False
+State.AVOID
+	detected: True
+	range: 189.26625319790818
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.26625319790824
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.26625319790818
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.26625319790818
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.2662531979081
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.2662531979081
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.2662531979081
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: False
+	range: 0
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 971.910632687193
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+	detected: True
+	range: 189.26625319790904
+	bumper: False
+	cliff: False
+State.OBJECT
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: False
+	bumper: False
+	cliff: True
+	detected: True
+	range: 129.2668593717933
+	bumper: False
+	cliff: True
+State.OBSTACLE
+	detected: True
+	range: 179.2663414146791
+	bumper: False
+	cliff: False
+State.OBSTACLE
+	detected: True
+	range: 179.2663414146791
+	bumper: False
+	cliff: False
+State.AVOID
+	detected: True
+	range: 179.2663414146791
+	bumper: False
+	cliff: False
+State.SEARCH_R1
+[0;31mESCAPED WHILE LOOP[0m

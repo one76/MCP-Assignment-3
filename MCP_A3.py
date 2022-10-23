@@ -301,7 +301,7 @@ class Kobuki(Scene):
             )
         )
 
-    def UpdateDetection(layout_num):
+    def UpdateDetection(layout_num, self):
         detected=False
         distance=0
         
@@ -336,9 +336,12 @@ class Kobuki(Scene):
         
         output.write("\tdetected: "+str(detected)+"\n") # Debugging Log
         output.write("\trange: "+str(distance)+"\n") # Debugging Log
+        
+        MarsRoverNavigation.updateUS_View(self, detected) # Update the ultrasonic sensor view 
+        
         return detected, distance
 
-    def UpdateBumper(layout_num):     
+    def UpdateBumper(layout_num, self):     
         bumper = False
 
         dist_kobuki_r1=math.dist( #distance from kobuki to rock 1
@@ -364,7 +367,7 @@ class Kobuki(Scene):
         output.write("\tbumper: "+str(bumper)+"\n")
         return bumper
 
-    def UpdateCliff(layout_num, self=None):
+    def UpdateCliff(layout_num, self):
         cliff=False
         if layout_num==0:
             layout_points=Layouts.L1_Positions  
@@ -466,18 +469,18 @@ class PointInsidePolygon(Scene):
 # ==== ALGORITHM AND FSM ==== 
 
 class State(Enum):
-    IDLE        = 0
-    SEARCH      = 1
-    SEARCH_R1   = 2
-    SEARCH_R2   = 3
-    OBJECT      = 4
-    OBSTACLE    = 5
-    AVOID       = 6
+    SEARCH      = 0
+    SEARCH_R1   = 1
+    SEARCH_R2   = 2
+    OBJECT      = 3
+    OBSTACLE    = 4
+    AVOID       = 5
 
 class MarsRoverNavigation(Scene):
     rover=None
     mission=[False,False] # mission=[collect rock 1, collect rock 2]
 
+    # Manim-specific functions
     def SetTest1(self):
         Layout1 = Layouts.DrawLayout1(self)
         roverStartPos=[
@@ -522,22 +525,21 @@ class MarsRoverNavigation(Scene):
         self.play(FadeOut(layout), FadeIn(Polygon(*Layouts.L2and3_Positions)))
 
     def updateUS_View(self, detected):
-        if detected==True:
-            Kobuki.US_View.set_color(RED).set_fill(color=RED,opacity=0.5)
-        else:
-            Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
+        if detected==True: Kobuki.US_View.set_color(RED).set_fill(color=RED,opacity=0.5)
+        else: Kobuki.US_View.set_color(BLUE).set_fill(color=BLUE_B,opacity=0.3)
 
     def MissionCompleted(self, layout):
         self.play(FadeOut(Kobuki.US_View),FadeOut(MarsRoverNavigation.rover),FadeOut(layout))
         self.play(FadeIn(Text("Mission Completed")))
         self.wait(2)
 
-    def testAlgorithm(self):
-        # Init stuff
-        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+
+    # The actual algorithm
+    def testAlgorithm(self, layout_num):     
         DIR=CCW
         state=State.SEARCH_R1
         layout3=False
+
         detectObjectCounter=0
         objectRanges=[0,0]
         objectAngles=[0,0]
@@ -547,18 +549,15 @@ class MarsRoverNavigation(Scene):
             WHILE_ESCAPE_COUNTER-=1
 
             # Update sensors
-            detected, dist=Kobuki.UpdateDetection(layout_num)
-            bumper=Kobuki.UpdateBumper(layout_num)
-            cliff=Kobuki.UpdateCliff(layout_num)
+            detected, dist  = Kobuki.UpdateDetection(layout_num, self)
+            bumper          = Kobuki.UpdateBumper   (layout_num, self)
+            cliff           = Kobuki.UpdateCliff    (layout_num, self)
 
-            MarsRoverNavigation.updateUS_View(self, detected) # Update the ultrasonic sensor view 
+            #MarsRoverNavigation.updateUS_View(self, detected) # Update the ultrasonic sensor view 
             output.write(str(state)+"\n") # Debug log
 
             # FSM
             match state:
-                case State.IDLE:
-                    self.wait(2)
-
                 case State.SEARCH_R1:
                     if detected:
                         if not (int(objectRanges[0])==int(dist)):
@@ -607,8 +606,8 @@ class MarsRoverNavigation(Scene):
                         while mm < dist:
                             mm+=step
                             # Update sensors
-                            bumper=Kobuki.UpdateBumper(layout_num)
-                            cliff=Kobuki.UpdateCliff(layout_num)
+                            bumper=Kobuki.UpdateBumper(layout_num, self)
+                            cliff=Kobuki.UpdateCliff(layout_num, self)
 
                             if bumper or cliff:
                                 state=State.OBSTACLE
@@ -650,12 +649,21 @@ class MarsRoverNavigation(Scene):
                                 Kobuki.Rotate(self,MarsRoverNavigation.rover,objectAngles[0]*DIR,ROTATE_SPEED,0.5)
                                 objectAngles[1]+=objectAngles[0]*DIR
         
-        if (WHILE_ESCAPE_COUNTER<=0): output.write("ESCAPED WHILE LOOP")
-        if (MarsRoverNavigation.mission == [True, True]): MarsRoverNavigation.MissionCompleted(self,layout)
-        output.close()
 
+
+    # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
-        #MarsRoverNavigation.testAlgorithm(self)
-        MarsRoverNavigation.viewLayout3(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+        MarsRoverNavigation.testAlgorithm(self, layout_num)
+        
+        if (MarsRoverNavigation.mission == [True, True]): 
+            MarsRoverNavigation.MissionCompleted(self,layout)
+            output.write(Green+"Mission Successful"+Color_Off)
+        else: 
+            # algorithm loop only finished when mission completed 
+            # or when while loop counter goes below 0
+            output.write(Red+"ESCAPED WHILE LOOP"+Color_Off)
+        
+        output.close()
 
 # ==== ALGORITHM AND FSM ====

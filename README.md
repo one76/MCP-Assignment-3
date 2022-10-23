@@ -16,3 +16,4 @@ Algorithm:
    4. Drive to the second rock
 9. Stop approximately 85 mm before rock (210/2- *Rock Radius*:40/2)
 
+Run ```manim -ql -p MCP_A3.py MarsRoverNavigation``` to run the code
