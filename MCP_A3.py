@@ -325,14 +325,14 @@ class Kobuki(Scene):
                 math.dist(
                     Layouts.R1Pos[layout_num],
                     MarsRoverNavigation.rover.get_center()
-                ))/U # distance in mm
+                )-(Kobuki.Radius+Layouts.RockRad)*U)/U # distance in mm
             detected = True
         elif detectRock2 : 
             distance=(
                 math.dist(
                     Layouts.R2Pos[layout_num],
                     MarsRoverNavigation.rover.get_center()
-                ))/U # distance in mm
+                )-(Kobuki.Radius+Layouts.RockRad)*U)/U # distance in mm
             detected = True
         
         output.write("\tdetected: \t"+str(detected)+"\n") # Debugging Log
@@ -609,7 +609,7 @@ class MarsRoverNavigation(Scene):
             match state:
                 case State.SEARCH:
                     if detected:
-                        if not collecting_1st_rock or (collecting_1st_rock and dist<700):
+                        if not collecting_1st_rock or (collecting_1st_rock and dist<850):
                             state=MarsRoverNavigation.updateState(state,State.OBJECT)
                             Kobuki.Rotate(self,MarsRoverNavigation.rover,11*MarsRoverNavigation.DIR,ROTATE_SPEED/2)
                         else: Kobuki.Rotate(self,MarsRoverNavigation.rover,2*MarsRoverNavigation.DIR,ROTATE_SPEED,0.01)
@@ -659,7 +659,7 @@ class MarsRoverNavigation(Scene):
 
 
         # ==== CHOOSE LAYOUT ====
-        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+        layout, layout_num=MarsRoverNavigation.SetTest2(self)
         # ==== CHOOSE LAYOUT ====
 
 
