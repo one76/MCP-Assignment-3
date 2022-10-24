@@ -538,7 +538,7 @@ class MarsRoverNavigation(Scene):
         output.write(UPurple+str(newState)+"\n"+Color_Off) # Debug log    
         return newState
 
-    def driveUpToRock(self, layout_num, distance_to_rock): # distance_to_rock in mm
+    def driveWithSensor(self, layout_num, distance_to_rock): # distance_to_rock in mm
         step=20 # mm
         for _ in range(0,int(distance_to_rock),step):
             bumper=Kobuki.UpdateBumper(layout_num, self)
@@ -611,9 +611,9 @@ class MarsRoverNavigation(Scene):
                 case State.ROCK:
                     if detected and not bumper and not cliff:
                         if collecting_1st_rock:
-                            bumper, cliff = MarsRoverNavigation.driveUpToRock(self,layout_num,dist)
+                            bumper, cliff = MarsRoverNavigation.driveWithSensor(self,layout_num,dist)
                         else: # if collecting 2nd rock
-                            bumper, cliff = MarsRoverNavigation.driveUpToRock(self,layout_num,dist-85) # stop just before the rock
+                            bumper, cliff = MarsRoverNavigation.driveWithSensor(self,layout_num,dist-85) # stop just before the rock
                             if 60<=dist<=100: MarsRoverNavigation.mission[1]=True # Update collection status
                     
                     if bumper: # Should only hit bumper when colleting first rock
