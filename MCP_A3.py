@@ -632,7 +632,8 @@ class MarsRoverNavigation(Scene):
                         self.add(removeRock1)
 
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
-                    if cliff: # Should only activate cliff sensor in the 3rd layout
+                    if cliff:
+                        if not collecting_1st_rock: layout3=True
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
                     if not detected and not bumper and not cliff:
                         state=MarsRoverNavigation.updateState(state,State.SEARCH)
@@ -642,10 +643,17 @@ class MarsRoverNavigation(Scene):
                         state=MarsRoverNavigation.updateState(state,State.SEARCH)                    
                     else:
                         Kobuki.Drive(self,MarsRoverNavigation.rover,-80*U,DRIVE_SPEED)
-                        if cliff:
+                        if cliff and not layout3:
                             Kobuki.Rotate(self,MarsRoverNavigation.rover,60*CW,ROTATE_SPEED)
                             Kobuki.Drive(self,MarsRoverNavigation.rover,250*U,DRIVE_SPEED)
                             MarsRoverNavigation.DIR=CCW
+
+                        # Hard coding for layout 3
+                        elif layout3 and cliff:
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,100*CW,ROTATE_SPEED)
+                                Kobuki.Drive(self,MarsRoverNavigation.rover,700*U,DRIVE_SPEED)
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,100*CCW,ROTATE_SPEED)
+                                Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
@@ -659,7 +667,7 @@ class MarsRoverNavigation(Scene):
 
 
         # ==== CHOOSE LAYOUT ====
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         # ==== CHOOSE LAYOUT ====
 
 
