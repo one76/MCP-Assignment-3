@@ -471,7 +471,7 @@ class PointInsidePolygon(Scene):
 class State(Enum):
     SEARCH      = 0
     FOUND       = 1
-    ROCK           = 2
+    OBJECT      = 2
     OBJECT      = 3
     OBSTACLE    = 4
     AVOID       = 5
@@ -578,11 +578,11 @@ class MarsRoverNavigation(Scene):
             # FSM
             match state:
                 case State.SEARCH:
-                    if detected and (found_new_rock or found_both_rocks):
-                        state=MarsRoverNavigation.updateState(state,State.FOUND)
+                    if detected:
+                        state=MarsRoverNavigation.updateState(state,State.OBJECT)
                     elif bumper or cliff:
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
-                    if not detected or (detected and not found_new_rock):
+                    else:
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*MarsRoverNavigation.DIR,ROTATE_SPEED,0.01)
 
                 case State.FOUND:
@@ -603,12 +603,12 @@ class MarsRoverNavigation(Scene):
                                 ROTATE_SPEED,
                                 0.5
                             )
-                            state=MarsRoverNavigation.updateState(state,State.ROCK)
+                            state=MarsRoverNavigation.updateState(state,State.OBJECT)
                             detectObjectCounter+=1 
                     elif found_both_rocks:
-                        state=MarsRoverNavigation.updateState(state,State.ROCK)
+                        state=MarsRoverNavigation.updateState(state,State.OBJECT)
                         
-                case State.ROCK:
+                case State.OBJECT:
                     if detected and not bumper and not cliff:
                         if collecting_1st_rock:
                             bumper, cliff = MarsRoverNavigation.driveWithSensor(self,layout_num,dist)
