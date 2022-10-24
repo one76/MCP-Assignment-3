@@ -36,6 +36,7 @@ DRIVE_SPEED     = 250*U # mm/s  | Kinda broken
 ROTATE_SPEED    = 200   # deg/s | Kinda broken
 CCW             = 1
 CW              = -1
+CLIFF_SHOW      = False
 # ==== MACROS ====
 
 
@@ -559,12 +560,26 @@ class MarsRoverNavigation(Scene):
         for _ in range(0,int(distance_to_rock),step):
             bumper=Kobuki.UpdateBumper(layout_num, self)
             cliff=Kobuki.UpdateCliff(layout_num, self)
+            MarsRoverNavigation.drawCliffSensorPoints(self, CLIFF_SHOW)
             _, dist  = Kobuki.UpdateDetection(layout_num, self)
 
             if bumper or cliff:
                 return bumper, cliff
             Kobuki.Drive(self,MarsRoverNavigation.rover,step*U,DRIVE_SPEED,0.01)
         return 0,0
+
+    def drawCliffSensorPoints(self, draw):
+        if draw:
+            for angle in range(-20,20+10,10):     
+                theta=angle*DEGREES+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0]) # Trig to get the correct coordinates for the specified angles
+                pt=[
+                    MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.cos((angle+Kobuki.current_angle)*DEGREES),
+                    MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.sin((angle+Kobuki.current_angle)*DEGREES),
+                    0
+                ]
+                i=int(abs(-20-angle)/10)
+                MarsRoverNavigation.d[i].move_to(pt)
+
 
     # The actual algorithm
     def testAlgorithm(self, layout_num):     
@@ -577,20 +592,9 @@ class MarsRoverNavigation(Scene):
         objectRanges=[0,0]
         objectAngles=[0,0]
 
-        WHILE_ESCAPE_COUNTER=300
+        WHILE_ESCAPE_COUNTER=30
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
-
-
-            for angle in range(-20,20+10,10):     
-                theta=angle*DEGREES+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0]) # Trig to get the correct coordinates for the specified angles
-                pt=[
-                    MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.cos((angle+Kobuki.current_angle)*DEGREES),
-                    MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.sin((angle+Kobuki.current_angle)*DEGREES),
-                    0
-                ]
-                i=int(abs(-20-angle)/10)
-                MarsRoverNavigation.d[i].move_to(pt)
 
             # Update sensors
             detected, dist  = Kobuki.UpdateDetection(layout_num, self)
@@ -601,6 +605,8 @@ class MarsRoverNavigation(Scene):
             found_both_rocks    = detectObjectCounter>=2
             found_new_rock      = not int(objectRanges[0])==int(dist)            
             collecting_1st_rock = MarsRoverNavigation.mission[0] == False
+
+            MarsRoverNavigation.drawCliffSensorPoints(self, CLIFF_SHOW)
 
             # FSM
             match state:
@@ -648,7 +654,9 @@ class MarsRoverNavigation(Scene):
         self.add(MarsRoverNavigation.cliff)
 
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
-        self.add(*MarsRoverNavigation.d)
+        
+        if CLIFF_SHOW: self.add(*MarsRoverNavigation.d)
+
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
         if (MarsRoverNavigation.mission == [True, True]): 
