@@ -639,12 +639,15 @@ class MarsRoverNavigation(Scene):
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
+        # Bumper Sensor Triggered Visual
         MarsRoverNavigation.bumper=Dot(UP*3+LEFT*6, color=WHITE)
         self.add(MarsRoverNavigation.bumper)
+
+        # Cliff Sensor Triggered Visual
         MarsRoverNavigation.cliff=Dot(UP*2+LEFT*6, color=WHITE)
         self.add(MarsRoverNavigation.cliff)
 
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         self.add(*MarsRoverNavigation.d)
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
