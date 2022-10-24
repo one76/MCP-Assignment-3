@@ -643,7 +643,7 @@ class MarsRoverNavigation(Scene):
                     else:
                         Kobuki.Drive(self,MarsRoverNavigation.rover,-80*U,DRIVE_SPEED)
                         if cliff:
-                            Kobuki.Rotate(self,MarsRoverNavigation.rover,90*CW,ROTATE_SPEED)
+                            Kobuki.Rotate(self,MarsRoverNavigation.rover,60*CW,ROTATE_SPEED)
                             Kobuki.Drive(self,MarsRoverNavigation.rover,250*U,DRIVE_SPEED)
                             MarsRoverNavigation.DIR=CCW
 
@@ -659,7 +659,7 @@ class MarsRoverNavigation(Scene):
 
 
         # ==== CHOOSE LAYOUT ====
-        layout, layout_num=MarsRoverNavigation.SetTest2(self)
+        layout, layout_num=MarsRoverNavigation.SetTest1(self)
         # ==== CHOOSE LAYOUT ====
 
 
