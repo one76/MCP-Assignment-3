@@ -336,8 +336,8 @@ class Kobuki(Scene):
             )/U # distance in mm
             detected = True
         
-        output.write("\tdetected: "+str(detected)+"\n") # Debugging Log
-        output.write("\trange: "+str(distance)+"\n") # Debugging Log
+        output.write("\tdetected: \t"+str(detected)+"\n") # Debugging Log
+        output.write("\trange: \t\t"+str(distance)+"\n") # Debugging Log
         
         MarsRoverNavigation.updateUS_View(self, detected) # Update the ultrasonic sensor view 
         
@@ -364,7 +364,12 @@ class Kobuki(Scene):
         else: 
             bumper = False
 
-        output.write("\tbumper: "+str(bumper)+"\n")
+        output.write("\tbumper: \t"+str(bumper)+"\n")
+        if bumper:
+            MarsRoverNavigation.bumper.set_color(RED)
+        else:
+            MarsRoverNavigation.bumper.set_color(WHITE)
+
         return bumper
 
     def UpdateCliff(layout_num, self):
@@ -373,18 +378,21 @@ class Kobuki(Scene):
             layout_points=Layouts.L1_Positions  
         else:
             layout_points=Layouts.L2and3_Positions
-
         # Check for cliff at points around the face of the kobuki (the arrow)
-        for angle in range(-20,20,10):     
-            theta=angle*PI/180+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0]) # Trig to get the correct coordinates for the specified angles
+        for angle in range(-20,20+10,10):     
             pt=[
-                MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.sin(theta),
-                MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.cos(theta),
+                MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.cos((angle+Kobuki.current_angle)*DEGREES),
+                MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.cos((angle+Kobuki.current_angle)*DEGREES),
                 0
             ]
             if not PointInsidePolygon.point_inside_polygon(pt[0],pt[1],layout_points): cliff=True
 
-        output.write("\tcliff: "+str(cliff)+"\n")
+        if cliff:
+            MarsRoverNavigation.cliff.set_color(GREEN)
+        else:
+            MarsRoverNavigation.cliff.set_color(WHITE)
+
+        output.write("\tcliff: \t\t"+str(cliff)+"\n\n")
         return cliff
 
 class PointInsidePolygon(Scene):    
@@ -479,6 +487,15 @@ class MarsRoverNavigation(Scene):
     rover=None
     mission=[False,False] # mission=[collect rock 1, collect rock 2]
     DIR = CCW
+    bumper=None
+    cliff=None
+    d=[
+        Dot(color=BLUE),
+        Dot(color=BLUE),
+        Dot(color=BLUE),
+        Dot(color=BLUE),
+        Dot(color=BLUE)
+    ]
 
     # Manim-specific functions
     def SetTest1(self):
@@ -564,6 +581,17 @@ class MarsRoverNavigation(Scene):
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
+
+            for angle in range(-20,20+10,10):     
+                theta=angle*DEGREES+np.arctan(Kobuki.Kobuki_Y[1]/Kobuki.Kobuki_Y[0]) # Trig to get the correct coordinates for the specified angles
+                pt=[
+                    MarsRoverNavigation.rover.get_center()[0] + (Kobuki.Radius)*U*np.cos((angle+Kobuki.current_angle)*DEGREES),
+                    MarsRoverNavigation.rover.get_center()[1] + (Kobuki.Radius)*U*np.sin((angle+Kobuki.current_angle)*DEGREES),
+                    0
+                ]
+                i=int(abs(-20-angle)/10)
+                MarsRoverNavigation.d[i].move_to(pt)
+
             # Update sensors
             detected, dist  = Kobuki.UpdateDetection(layout_num, self)
             bumper          = Kobuki.UpdateBumper   (layout_num, self)
@@ -579,6 +607,7 @@ class MarsRoverNavigation(Scene):
                 case State.SEARCH:
                     if detected:
                         state=MarsRoverNavigation.updateState(state,State.OBJECT)
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,11*MarsRoverNavigation.DIR,ROTATE_SPEED/2)
                     elif bumper or cliff:
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
                     else:
@@ -610,7 +639,13 @@ class MarsRoverNavigation(Scene):
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
-        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+        MarsRoverNavigation.bumper=Dot(UP*3+LEFT*6, color=WHITE)
+        self.add(MarsRoverNavigation.bumper)
+        MarsRoverNavigation.cliff=Dot(UP*2+LEFT*6, color=WHITE)
+        self.add(MarsRoverNavigation.cliff)
+
+        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        self.add(*MarsRoverNavigation.d)
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
         if (MarsRoverNavigation.mission == [True, True]): 
