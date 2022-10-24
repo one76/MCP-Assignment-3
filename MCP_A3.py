@@ -471,7 +471,6 @@ class PointInsidePolygon(Scene):
 class State(Enum):
     SEARCH      = 0
     FOUND       = 1
-    OBJECT      = 2
     OBJECT      = 3
     OBSTACLE    = 4
     AVOID       = 5
@@ -584,29 +583,6 @@ class MarsRoverNavigation(Scene):
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
                     else:
                         Kobuki.Rotate(self,MarsRoverNavigation.rover,2*MarsRoverNavigation.DIR,ROTATE_SPEED,0.01)
-
-                case State.FOUND:
-                    if not found_both_rocks:
-                        # Record rock data
-                        objectAngles[detectObjectCounter]=Kobuki.current_angle
-                        objectRanges[detectObjectCounter]=dist
-                        detectObjectCounter+=1
-                        found_both_rocks = detectObjectCounter>=2
-                        state=MarsRoverNavigation.updateState(state,State.SEARCH)
-
-                        if found_both_rocks:
-                            closestRock = 0 if objectRanges[0]<objectRanges[1] else 1
-                            Kobuki.Rotate(
-                                self,
-                                MarsRoverNavigation.rover,
-                                0.8*(objectAngles[closestRock] - Kobuki.current_angle),
-                                ROTATE_SPEED,
-                                0.5
-                            )
-                            state=MarsRoverNavigation.updateState(state,State.OBJECT)
-                            detectObjectCounter+=1 
-                    elif found_both_rocks:
-                        state=MarsRoverNavigation.updateState(state,State.OBJECT)
                         
                 case State.OBJECT:
                     if detected and not bumper and not cliff:
@@ -620,40 +596,17 @@ class MarsRoverNavigation(Scene):
                         MarsRoverNavigation.mission[0]=True # Update collection status
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
                     if cliff: # Should only activate cliff sensor in the 3rd layout
-                        layout3=True
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
                     if not detected and not bumper and not cliff:
                         state=MarsRoverNavigation.updateState(state,State.SEARCH)
 
                 case State.OBSTACLE:
                     if not (bumper or cliff):
-                        state=MarsRoverNavigation.updateState(state,State.SEARCH)
+                        state=MarsRoverNavigation.updateState(state,State.SEARCH)                    
                     else:
                         Kobuki.Drive(self,MarsRoverNavigation.rover,-80*U,DRIVE_SPEED)
-                    
-                    # Should only be entered if collecting the first rock
-                    if bumper:
-                        # Rotate to face the farthest rock
-                        farthestRock = 0 if objectRanges[0]>objectRanges[1] else 1
-                        Kobuki.Rotate(
-                            self,
-                            MarsRoverNavigation.rover,
-                            objectAngles[farthestRock] - Kobuki.current_angle,
-                            ROTATE_SPEED,
-                            0.5
-                        )
-
-                    # Hard coding for layout 3
-                    if layout3 and cliff:
-                        if collecting_1st_rock:
-                            Kobuki.Rotate(self,MarsRoverNavigation.rover,20*CW,ROTATE_SPEED)
-                            Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
-                            Kobuki.Rotate(self,MarsRoverNavigation.rover,90*CCW,ROTATE_SPEED)
-                        else:
-                            Kobuki.Rotate(self,MarsRoverNavigation.rover,135*CW,ROTATE_SPEED)
-                            Kobuki.Drive(self,MarsRoverNavigation.rover,700*U,DRIVE_SPEED)
-                            Kobuki.Rotate(self,MarsRoverNavigation.rover,110*CCW,ROTATE_SPEED)
-                            Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
+                        if cliff:
+                            Kobuki.Rotate(self,MarsRoverNavigation.rover,90*CW,ROTATE_SPEED)
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
