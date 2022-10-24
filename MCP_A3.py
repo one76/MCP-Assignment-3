@@ -318,7 +318,8 @@ class Kobuki(Scene):
             Kobuki.US_View.get_all_points()
         )
 
-        if detectRock1 : 
+        # if detectRock 1 and Rock 1 not yet collected
+        if detectRock1 and MarsRoverNavigation.mission[0]==False: 
             distance=( # Distance from edge of kobuki to edge of rock
                 math.dist(
                     Layouts.R1Pos[layout_num],
