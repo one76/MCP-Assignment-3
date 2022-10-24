@@ -490,6 +490,7 @@ class MarsRoverNavigation(Scene):
     DIR = CCW
     bumper=None
     cliff=None
+    # Cliff sensor points
     d=[
         Dot(color=BLUE),
         Dot(color=BLUE),
@@ -592,7 +593,7 @@ class MarsRoverNavigation(Scene):
         objectRanges=[0,0]
         objectAngles=[0,0]
 
-        WHILE_ESCAPE_COUNTER=30
+        WHILE_ESCAPE_COUNTER=300
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
 
@@ -629,6 +630,9 @@ class MarsRoverNavigation(Scene):
                     
                     if bumper: # Should only hit bumper when colleting first rock
                         MarsRoverNavigation.mission[0]=True # Update collection status
+                        removeRock1=Circle(radius=Layouts.RockRad*U, color=GOLD_A).set_fill(color=GOLD_A, opacity=1).move_to(Layouts.R1Pos[layout_num])
+                        self.add(removeRock1)
+
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
                     if cliff: # Should only activate cliff sensor in the 3rd layout
                         state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
@@ -653,7 +657,7 @@ class MarsRoverNavigation(Scene):
         MarsRoverNavigation.cliff=Dot(UP*2+LEFT*6, color=WHITE)
         self.add(MarsRoverNavigation.cliff)
 
-        layout, layout_num=MarsRoverNavigation.SetTest3(self)
+        layout, layout_num=MarsRoverNavigation.SetTest1(self)
         
         if CLIFF_SHOW: self.add(*MarsRoverNavigation.d)
 
