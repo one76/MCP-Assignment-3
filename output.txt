@@ -5,358 +5,642 @@
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
 	range: 		1085.2403623945845
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.SEARCH
+[0m	detected: 	True
+	range: 		1085.2403623945843
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	True
+[4;35mState.FOUND
+[0m	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+[4;35mState.OBJECT
+[0m	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+[4;35mState.SEARCH
+[0m	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	True
-	range: 		1085.2403623945845
+	range: 		449.5487190567746
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
-	range: 		1085.2403623945845
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		449.5487190567746
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	True
-	range: 		1085.2403623945845
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
+[4;35mState.OBJECT
+[0m	detected: 	True
+	range: 		449.5487190567746
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	False
-	range: 		0
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 	bumper: 	False
 	cliff: 		False
 
@@ -365,1419 +649,2286 @@
 	bumper: 	False
 	cliff: 		False
 
-[4;35mState.OBJECT
-[0m	detected: 	True
-	range: 		449.54871905677476
-	bumper: 	False
-	cliff: 		False
-
+	detected: 	True
+	range: 		429.63352784900786
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		449.54871905677476
+	range: 		409.72375531439104
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		429.6040519240857
+	range: 		389.81993657713764
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		409.66292311445744
+	range: 		369.9226794271447
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		389.72568266185596
+	range: 		350.0326770508835
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		369.79272826172956
+	range: 		330.15072352730624
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		349.8645136532708
+	range: 		310.27773281322624
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		329.9415588314911
+	range: 		290.41476216713403
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		310.02446257164496
+	range: 		270.56304126603203
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		290.11391789931287
+	range: 		250.7240086903142
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		270.2107313451992
+	range: 		230.89935803680342
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		250.3158471076309
+	range: 		211.09109674421853
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		230.43037764216456
+	range: 		191.3016218916048
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		210.55564275825387
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		190.69322010644916
+	range: 		171.5338189328408
 	bumper: 	False
 	cliff: 		True
 
 	detected: 	True
-	range: 		170.8450111084617
+	range: 		151.7911918324427
 [4;35mState.OBSTACLE
 [0m	detected: 	True
-	range: 		170.8450111084617
+	range: 		151.7911918324427
 	bumper: 	False
 	cliff: 		True
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 [4;35mState.SEARCH
 [0m	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	True
-	range: 		214.41171080106994
+	range: 		205.6479661204893
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		205.6479661204893
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 [4;35mState.OBJECT
 [0m	detected: 	True
-	range: 		214.41171080106972
+	range: 		205.64796612048914
 	bumper: 	False
 	cliff: 		False
 
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		214.41171080106972
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		194.41581364371595
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		174.42033787411555
+	range: 		205.64796612048914
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		154.4253519162358
+	range: 		185.6625440370685
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		134.4309398534696
+	range: 		165.67865318035302
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		114.43720617945304
+	range: 		145.69654805689393
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		94.44428238984774
+	range: 		125.71654285213525
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		105.73903000112502
 	bumper: 	False
 	cliff: 		True
 
 	detected: 	True
-	range: 		74.45233630463618
+	range: 		85.76450614893743
 [4;35mState.OBSTACLE
 [0m	detected: 	True
-	range: 		74.45233630463618
+	range: 		85.76450614893743
 	bumper: 	False
 	cliff: 		True
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 [4;35mState.SEARCH
 [0m	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
-	detected: 	False
-	range: 		0
-	bumper: 	False
-	cliff: 		False
-
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: True
+	keep_searching:	False
 	detected: 	True
-	range: 		117.14537853010314
+	range: 		130.12797045387586
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		130.12797045387586
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 [4;35mState.OBJECT
 [0m	detected: 	True
-	range: 		117.14537853010381
+	range: 		130.12797045387572
 	bumper: 	False
 	cliff: 		False
 
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		117.14537853010381
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		97.16340314426971
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		77.18389422813458
+	range: 		130.12797045387572
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		57.20739488489955
+	range: 		110.12965531795724
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		37.23462017282548
+	range: 		90.1315610433245
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		17.266530945453805
+	range: 		70.13373410085735
+	bumper: 	False
+	cliff: 		False
+
 	detected: 	True
-	range: 		-2.6955507269305956
+	range: 		50.13623498092599
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		30.13914391101061
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		10.14256961975356
+	detected: 	True
+	range: 		-9.85333677452147
 	bumper: 	True
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: True
+	keep_searching:	False
 [4;35mState.OBSTACLE
 [0m	detected: 	False
 	range: 		0
 	bumper: 	True
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 [4;35mState.SEARCH
 [0m	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	True
-	range: 		815.276886514608
+	range: 		822.5043142546141
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		822.5043142546141
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 [4;35mState.OBJECT
 [0m	detected: 	True
-	range: 		815.2768865146079
+	range: 		822.5043142546139
 	bumper: 	False
 	cliff: 		False
 
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		815.2768865146079
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		795.3322770551697
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		775.3899016209394
+	range: 		822.5043142546139
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		755.4498979370259
+	range: 		802.5824169154444
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		735.5124152683297
+	range: 		782.6636448894075
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		715.5776156519582
+	range: 		762.7481891839831
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		695.645675290743
+	range: 		742.836256659299
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		675.7167861329343
+	range: 		722.9280717036029
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		655.7911576676885
+	range: 		703.0238781252801
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		635.8690189714764
+	range: 		683.1239412946966
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		615.9506210472033
+	range: 		663.2285505751108
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		596.0362395059684
+	range: 		643.3380220890838
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		576.1261776513481
+	range: 		623.4527018755088
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		556.220770038309
+	range: 		603.5729695029522
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		536.320386593983
+	range: 		583.6992422178836
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		563.8319797221748
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		543.9716896936949
 	bumper: 	False
 	cliff: 		True
 
 	detected: 	True
-	range: 		516.4254374062895
+	range: 		524.1189341878902
 [4;35mState.OBSTACLE
 [0m	detected: 	True
-	range: 		516.4254374062895
+	range: 		524.1189341878902
 	bumper: 	False
 	cliff: 		True
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 [4;35mState.SEARCH
 [0m	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	True
-	range: 		662.3078711481974
+	range: 		678.2115290456127
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		678.2115290456127
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 [4;35mState.OBJECT
 [0m	detected: 	True
-	range: 		662.3078711481966
+	range: 		678.2115290456129
 	bumper: 	False
 	cliff: 		False
 
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		662.3078711481966
-	bumper: 	False
-	cliff: 		False
-
-	detected: 	True
-	range: 		642.4098766091878
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		622.516741465736
+	range: 		678.2115290456129
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		602.6288204092285
+	range: 		658.3180570099805
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		582.7465034032981
+	range: 		638.4295646269663
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		562.8702201656715
+	range: 		618.5464083415266
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		543.0004453488087
+	range: 		598.6689793391073
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		523.1377045493573
+	range: 		578.7977078692218
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		503.282581304737
+	range: 		558.9330682288463
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		483.4357252705492
+	range: 		539.0755845257171
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		463.5978618169967
+	range: 		519.2258373671467
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		443.7698033387701
+	range: 		499.3844716517662
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		423.9524626444473
+	range: 		479.5522056813722
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		404.1468688831476
+	range: 		459.72984186009194
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		384.35418658436646
+	range: 		439.91827931141944
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		364.5757385403649
+	range: 		420.1185288242787
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		344.81303346118267
+	range: 		400.33173064258744
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		325.0677995968776
+	range: 		380.55917574602734
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		305.3420258731895
+	range: 		360.80233144280794
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		285.6380125581926
+	range: 		341.0628723216997
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		265.9584341152766
+	range: 		321.342717909309
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		246.3064177691665
+	range: 		301.64407877573734
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		226.68564251447276
+	range: 		281.96951336446784
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		207.10046497466044
+	range: 		262.3219985433331
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		187.55608088839804
+	range: 		242.70501785875956
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		223.12267283578592
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	True
+	range: 		203.5798245645134
 	bumper: 	False
 	cliff: 		False
 
@@ -1798,47 +2949,99 @@
 
 	detected: 	False
 	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	detected: 	False
+	range: 		0
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 [4;35mState.SEARCH
 [0m	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	False
 	range: 		0
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
+	detected: 	False
+	range: 		0
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	False
+	collecting_1st_rock: False
+	keep_searching:	False
 	detected: 	True
-	range: 		90.71944148554894
+	range: 		87.57995308773003
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
+[4;35mState.FOUND
+[0m	detected: 	True
+	range: 		87.57995308773003
+	bumper: 	False
+	cliff: 		False
+
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 [4;35mState.OBJECT
 [0m	detected: 	True
-	range: 		90.71944148554881
+	range: 		87.57995308773017
 	bumper: 	False
 	cliff: 		False
 
+	found_both_rocks: False
+	found_new_rock:	True
+	collecting_1st_rock: False
+	keep_searching:	False
 	bumper: 	False
 	cliff: 		False
 
 	detected: 	True
-	range: 		90.71944148554881
+	range: 		87.57995308773017
 [0;32mMission Successful
 [0m
