@@ -480,7 +480,6 @@ class State(Enum):
     FOUND       = 1
     OBJECT      = 3
     OBSTACLE    = 4
-    AVOID       = 5
 
 class MarsRoverNavigation(Scene):
     rover=None
