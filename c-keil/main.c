@@ -24,13 +24,19 @@
 enum {IDLE, SEARCH, FIND, OBJECT, OBSTACLE} state;
 
 int main() {
+    // Objects
     Kobuki_Typedef kobuki   = {}
     US_Typedef object       = {}
+
+    // For Storing States
     int collected_rocks[2] = {0,0};
     uint16_t old_range;
     int DIR = CCW;
 
+    // Boolean flag
+    int KEEP_SEARCHING = !COLLECTING_FIRST_ROCK || (COLLECTING_FIRST_ROCK && object.range<850) ? FALSE : TRUE;
 
+    // Init
     ADC_Init();
     UART_Init();
     Ultrasoic_Init();
@@ -42,16 +48,13 @@ int main() {
         Kobuki_Read(&kobuki);
         Ultrasonic_Detect(&object);
         
-        // Boolean Values to Increase Readablility
+        // Boolean Flags to Increase Readablility
         int STOP_KOBUKI = (
                 kobuki.button == BUTTON_1   ||
                 kobuki.wheeldrop            ||
-                kobuki.bumper               ||
-                kobuki.cliff                ||
             );
-        int COLLECTING_FIRST_ROCK = collected_rocks[0] == FALSE
-        int FOUND_NEW_ROCK =  !(old_range-8 <= object.range || old_range+8 >= object.range)
-        int KEEP_SEARCHING = !COLLECTING_FIRST_ROCK || (COLLECTING_FIRST_ROCK && object.range<850) ? FALSE : TRUE
+        int COLLECTING_FIRST_ROCK = collected_rocks[0] == FALSE;
+        int FOUND_NEW_ROCK =  !(old_range-8 <= object.range || old_range+8 >= object.range);
 
         switch (state)
         {
@@ -75,10 +78,26 @@ int main() {
                 state = OBSTACLE;
             }
             else if (!object.detected || (object.detected && KEEP_SEARCHING)) {
-                Kobuki_Rotate(SEARCH_SPEED*DIR)
+                Kobuki_Rotate(SEARCH_SPEED*DIR);
             }
             break;
         case FIND:
+            if (STOP_KOBUKI) {
+                state = IDLE;
+            }
+            else if (!COLLECTING_FIRST_ROCK || (COLLECTING_FIRST_ROCK && object.range<850)) {
+                KEEP_SEARCHING=FALSE;
+                if (kobuki.rotation_complete == 0) {
+                    Kobuki_Rotate_Angle_Setpoint(kobuki.angle, (int16_t)11*DIR);
+                }
+                else if (kobuki.rotation_complete == 1) {
+                    ??
+                }
+            }
+            else {
+                KEEP_SEARCHING=TRUE;
+                state=SEARCH;
+            }
             break;
         case OBJECT:
             break;
