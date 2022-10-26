@@ -20,7 +20,7 @@
 9. Stop approximately 85 mm before rock (210/2- *Rock Radius*:40/2)
 
 ### FSM
-![Finite State Machine of Simple Algorithm with Layout 3 Hardcoding](https://github.com/one76/MCP-Assignment-3/tree/simple-l3-hardcode/Flowchart_MCP_AS_L3.png?raw=true)
+![Finite State Machine of Simple Algorithm with Layout 3 Hardcoding](./Flowchart_MCP_AS_L3.png)
 
 ###
 Run ```manim -ql -p MCP_A3.py MarsRoverNavigation``` to run the code
