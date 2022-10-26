@@ -1,10 +1,10 @@
 /* 
 * 
-*  ===========================
-* |       MCP Assignment 3     |
-* |   Michael Laden - a1748876 | 
-* |   Michael Neill - a1764673 |
-*  ========================== 
+*  =========================
+* |     MCP Assignment 3     |
+* | Michael Laden - a1748876 | 
+* | Michael Neill - a1764673 |
+*  ========================= 
 * 
 * File: main.c
 * Contains high-level kobuki algorithm
@@ -21,25 +21,26 @@
 #define FALSE 0
 
 // STATES
-enum {IDLE, SEARCH, FIND, OBJECT, OBSTACLE} state;
+enum {IDLE, SEARCH, FOUND, OBJECT, OBSTACLE} state;
 
 int main() {
     // Objects
-    Kobuki_Typedef kobuki   = {}
-    US_Typedef object       = {}
+    Kobuki_Typedef kobuki   = {};
+    US_Typedef object       = {};
 
     // For Storing States
     int collected_rocks[2] = {0,0};
-    uint16_t old_range;
     int DIR = CCW;
 
     // Boolean flag
-    int KEEP_SEARCHING = !COLLECTING_FIRST_ROCK || (COLLECTING_FIRST_ROCK && object.range<850) ? FALSE : TRUE;
-
+		int COLLECTING_FIRST_ROCK = collected_rocks[0] == FALSE;
+    int KEEP_SEARCHING = !(!COLLECTING_FIRST_ROCK || (COLLECTING_FIRST_ROCK && object.range<850)) ? FALSE : TRUE;
+		int LAYOUT_3 = FALSE;
+		
     // Init
     ADC_Init();
     UART_Init();
-    Ultrasoic_Init();
+    Ultrasonic_Init();
 
 
     while(1) {
@@ -51,15 +52,20 @@ int main() {
         // Boolean Flags to Increase Readablility
         int STOP_KOBUKI = (
                 kobuki.button == BUTTON_1   ||
-                kobuki.wheeldrop            ||
+                kobuki.wheeldrop            
             );
-        int COLLECTING_FIRST_ROCK = collected_rocks[0] == FALSE;
-        int FOUND_NEW_ROCK =  !(old_range-8 <= object.range || old_range+8 >= object.range);
+        COLLECTING_FIRST_ROCK = collected_rocks[0] == FALSE;
 
+				// ROTATE SET ANGLE TO COMPLETION
+				while (kobuki.rotation_complete == 0) {
+						Kobuki_Rotate_Angle(kobuki.angle);
+				}
+					
+				
         switch (state)
         {
         case IDLE:
-            if (kobuki.btton == BUTTON_0)
+            if (kobuki.button == BUTTON_0)
             {
                 state = SEARCH;
             }
@@ -72,7 +78,7 @@ int main() {
                 state=IDLE;
             }
             else if (object.detected) {
-                state = FIND;
+                state = FOUND;
             }
             else if (kobuki.bumper || kobuki.cliff) {
                 state = OBSTACLE;
@@ -81,18 +87,15 @@ int main() {
                 Kobuki_Rotate(SEARCH_SPEED*DIR);
             }
             break;
-        case FIND:
+        case FOUND:
             if (STOP_KOBUKI) {
                 state = IDLE;
             }
+						// Find closest rock
             else if (!COLLECTING_FIRST_ROCK || (COLLECTING_FIRST_ROCK && object.range<850)) {
                 KEEP_SEARCHING=FALSE;
-                if (kobuki.rotation_complete == 0) {
-                    Kobuki_Rotate_Angle_Setpoint(kobuki.angle, (int16_t)11*DIR);
-                }
-                else if (kobuki.rotation_complete == 1) {
-                    ??
-                }
+                Kobuki_Rotate_Angle_Setpoint(kobuki.angle, (int16_t)11*DIR);
+								state = OBJECT;
             }
             else {
                 KEEP_SEARCHING=TRUE;
@@ -100,8 +103,70 @@ int main() {
             }
             break;
         case OBJECT:
+						if (STOP_KOBUKI) {
+                state = IDLE;
+            }
+						
+						// Bumping 1st rock or stopping before 2nd rock
+						if (object.detected && !kobuki.bumper && !kobuki.cliff) {
+							// DRIVE TO OBJECT
+							if (kobuki.distance_complete == 0) {
+								Kobuki_Drive_Distance(kobuki.distance);
+							}
+							
+							
+							if (COLLECTING_FIRST_ROCK) {
+								Kobuki_Drive_Distance_Setpoint(kobuki.distance, object.range);
+							}
+							else {
+								Kobuki_Drive_Distance_Setpoint(kobuki.distance, object.range-60);
+								state=IDLE;
+							}
+							
+							if (kobuki.bumper) {
+								collected_rocks[0] = TRUE;
+								state=OBSTACLE;
+							}
+							if (kobuki.cliff) {
+								if (!COLLECTING_FIRST_ROCK) {
+									LAYOUT_3 =TRUE;
+								}
+								state=OBSTACLE;
+							}
+							if (!object.detected && !kobuki.bumper && !kobuki.cliff) {
+								state=SEARCH;
+							}
+						}
             break;
         case OBSTACLE:
+					if (STOP_KOBUKI) {
+                state=IDLE;
+            }
+					if (
+						(!(kobuki.bumper || kobuki.cliff) && 
+						kobuki.distance_complete == TRUE &&
+						kobuki.rotation_complete == TRUE)
+						) {
+						state=SEARCH;
+					}
+					else {
+						Kobuki_Drive_Distance_Setpoint(kobuki.distance, (int16_t)-80);
+						if (kobuki.cliff && !LAYOUT_3) {
+							Kobuki_Rotate_Angle_Setpoint(kobuki.angle, (int16_t)60*CW);
+							Kobuki_Drive_Distance_Setpoint(kobuki.distance, (int16_t)250);
+						}
+						else if (kobuki.cliff && LAYOUT_3) {
+							Kobuki_Rotate_Angle_Setpoint(kobuki.angle, (int16_t)100*CW);
+							Kobuki_Drive_Distance_Setpoint(kobuki.distance, (int16_t)700);
+							Kobuki_Rotate_Angle_Setpoint(kobuki.angle, (int16_t)100*CW);
+							Kobuki_Drive_Distance_Setpoint(kobuki.distance, (int16_t)500);
+						}
+						
+					}
+					if (kobuki.distance_complete == FALSE && kobuki.rotation_complete == TRUE) {
+						Kobuki_Drive_Distance(kobuki.distance);
+					}
+						
             break;
         }
     }
