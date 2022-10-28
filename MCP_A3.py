@@ -1,5 +1,5 @@
 #  =========================
-# |    MCP Assignment 3?     |
+# |    MCP Assignment 3     |
 # |   Michael and Michael   |
 #  =========================
 
