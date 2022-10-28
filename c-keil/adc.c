@@ -1,18 +1,25 @@
 /*
- *
- *  =========================
- * |     MCP Assignment 3     |
- * | Michael Laden - a1748876 |
- * | Michael Neill - a1764673 |
- *  =========================
- *
- * File:          adc.c
- * Description:   Enable the microcontroller to initialise and read from the ADC from the selected channel. 
- */
+*
+*  =========================
+* |     MCP Assignment 3     |
+* | Michael Laden - a1748876 |
+* | Michael Neill - a1764673 |
+*  =========================
+*
+* File:          	adc.c
+* Description:		Enable the microcontroller to initialise and read from the ADC from the selected channel. 
+* 					Implementation file
+* 
+*/
 
+
+// ==== INCLUDES ====
 #include "adc.h"
 #include "LPC407x_8x_177x_8x.h"
+// ==== INCLUDES ====
 
+
+// ==== FUNCTION IMPLEMENTATION ====
 void ADCInit ( void ) {
 
 	/*
@@ -32,6 +39,7 @@ void ADCInit ( void ) {
 	*/
 
 	LPC_ADC -> CR = (1 << 1) | (4 << 8) |(1 << 21);
+
 }
 
 uint32_t ADCRead(uint8_t channel) {
@@ -54,3 +62,4 @@ uint32_t ADCRead(uint8_t channel) {
 	return data;
 
 }
+// ==== FUNCTION IMPLEMENTATION ====

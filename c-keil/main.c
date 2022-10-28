@@ -6,8 +6,8 @@
 * | Michael Neill - a1764673 |
 *  ========================= 
 * 
-* File: main.c
-* Contains high-level kobuki algorithm
+* File:             main.c
+* Description:      Contains high-level kobuki algorithm
 *
 */
 
