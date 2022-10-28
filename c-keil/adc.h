@@ -24,15 +24,15 @@
 
 
 // ==== FUNCTION HEADERS ====
-/* ADC INIT
-Intialise the ADC.
+/** ADC Init
+    @brief Intialise the ADC.
 */
 void ADCInit ( void );
 
-/* ADC READ
-Read the ADC value from the channel selected.
-@param channel Select the channel to read from the ADC.
-@return [uint32_t] Data from the ADC channel.
+/** ADC READ
+    @brief Read the ADC value from the channel selected.
+    @param channel Select the channel to read from the ADC.
+    @return [uint32_t] Data from the ADC channel.
 */
 uint32_t ADCRead ( uint8_t channel );
 // ==== FUNCTION HEADERS ====

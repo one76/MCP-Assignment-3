@@ -19,7 +19,7 @@
 // ==== INCLUDES ====
 
 
-// ==== FUNCTION IMPLEMENTATION ====
+// ==== FUNCTION IMPLEMENTATIONS ====
 void ADCInit ( void ) {
 
 	/*
@@ -62,4 +62,4 @@ uint32_t ADCRead(uint8_t channel) {
 	return data;
 
 }
-// ==== FUNCTION IMPLEMENTATION ====
+// ==== FUNCTION IMPLEMENTATIONS ====
