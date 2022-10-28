@@ -4,6 +4,7 @@
 
 **Branch: Master**
 
+<<<<<<< HEAD
 ### Algorithm:
 1. Search until see the closest rock (less than 850mm)
 2. Approximately center the closest rock
@@ -18,6 +19,9 @@
    3. Search for the second rock
    4. Drive to the second rock
 9. Stop approximately 85 mm before rock (210/2- *Rock Radius*:40/2)
+=======
+Contains skeleton for algorithm design in ```MarsRoverNavigation.testAlgorithm(self, draw)```
+>>>>>>> comment
 
 ### FSM
 ![Finite State Machine of Simple Algorithm with Layout 3 Hardcoding](./Flowchart_MCP_AS_L3.png)

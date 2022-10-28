@@ -671,6 +671,7 @@ class MarsRoverNavigation(Scene):
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
+        # VISUALS FOR SENSORS
         # Bumper Sensor Triggered Visual
         MarsRoverNavigation.bumper=Dot(UP*3+LEFT*6, color=WHITE)
         self.add(MarsRoverNavigation.bumper)
@@ -679,13 +680,11 @@ class MarsRoverNavigation(Scene):
         MarsRoverNavigation.cliff=Dot(UP*2+LEFT*6, color=WHITE)
         self.add(MarsRoverNavigation.cliff)
 
+        if CLIFF_SHOW: self.add(*MarsRoverNavigation.d)
 
         # ==== CHOOSE LAYOUT ====
         layout, layout_num=MarsRoverNavigation.SetTest3(self)
         # ==== CHOOSE LAYOUT ====
-
-
-        if CLIFF_SHOW: self.add(*MarsRoverNavigation.d)
 
         MarsRoverNavigation.testAlgorithm(self, layout_num)
         
@@ -693,8 +692,6 @@ class MarsRoverNavigation(Scene):
             MarsRoverNavigation.MissionCompleted(self,layout)
             output.write(Green+"Mission Successful\n"+Color_Off)
         else: 
-            # algorithm loop only finished when mission completed 
-            # or when while loop counter goes below 0
             output.write(Red+"ESCAPED WHILE LOOP\n"+Color_Off)
         
         output.close()
