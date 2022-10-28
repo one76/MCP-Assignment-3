@@ -1,79 +1,99 @@
+/*
+*
+*  =========================
+* |     MCP Assignment 3     |
+* | Michael Laden - a1748876 |
+* | Michael Neill - a1764673 |
+*  =========================
+*
+* File:             kobuki.c
+* Description:      Kobuki functions for transferring and receiving information 
+*                   from and to the kobuki. Also, functions for controlling the
+*                   kobuki. Implementation file.
+* 
+*/
+
+
+// ==== INCLUDES ====
 #include <math.h>
 #include <stdlib.h>
 
 #include "gpio.h"
 #include "uart.h"
 #include "kobuki.h"
+// ==== INCLUDES ====
 
 
+// ==== MACROS ====
 // Define buffer for feedback
-#define SIZE_FEEDBACK 26
+#define SIZE_FEEDBACK   26
 
 // Buffer defintions for payload
-#define BUMPER 4
-#define WHEEL_DROP 5
-#define CLIFF 6
-#define BUTTON 13
+#define BUMPER      4
+#define WHEEL_DROP  5
+#define CLIFF       6
+#define BUTTON      13
 
-#define DIST_LSB 7
-#define DIST_MSB 8
-#define ANGLE_LSB 24
-#define ANGLE_MSB 25
+#define DIST_LSB    7
+#define DIST_MSB    8
+#define ANGLE_LSB   24
+#define ANGLE_MSB   25
 
-#define ROTATE 0
-#define DRIVE 1
+#define ROTATE      0
+#define DRIVE       1
 
-#define EXTERN_PWR 0x30
+#define EXTERN_PWR  0x30
 
+#define PI                      3.1416f
+#define WHEEL_RADIUS            35                  // mm
+#define REVOLUTIONS_PER_TICK    (132.0f/6545.0f*52)
+#define MM_PER_TICK             0.08529209
+#define DEG_PER_TICK            ((float) 1/100)
 
-#define PI 3.1416f
-#define WHEEL_RADIUS 35 // mm
-#define REVOLUTIONS_PER_TICK (132.0f/6545.0f*52)
-#define MM_PER_TICK 0.08529209
-// #define MM_PER_TICK (float)(2 * PI * WHEEL_RADIUS * REVOLUTIONS_PER_TICK)
-#define DEG_PER_TICK ((float) 1/100)
-
-#define MIN_SPEED (int16_t)50 //mm/s
-#define GAIN_ROTATE ((float)100/45)		// Want the Kobuki to start slowing down at 45 deg
-#define GAIN_DRIVE	((float)100/100) 	// Want the Kobuki to start slowing down at 100 mm
+#define MIN_SPEED               (int16_t)50         // mm/s
+#define GAIN_ROTATE             ((float)100/45)		// Want the Kobuki to start slowing down at 45 deg
+#define GAIN_DRIVE	            ((float)100/100) 	// Want the Kobuki to start slowing down at 100 mm
 
 #define sign(x) (int8_t) (signbit ( x ) ? -1 : 1)
+// ==== MACROS ====
 
-uint8_t Kobuki_Rx(uint8_t *feedback , uint32_t size_feedback) {
+
+// ==== FUNCTION IMPLEMENTATIONS ====
+uint8_t KobukiRx(uint8_t *feedback , uint32_t size_feedback) {
 
     uint8_t feedback_header = 0, size_payload = 0, checksum = 1, rx_checksum = 0, i;
 
     // wait for start of data stream - header 0
     while (feedback_header != 0xAA ) {
-        feedback_header = UART_Rx();
+        feedback_header = UARTRx();
     }
 
     // check for header 1 as next byte
-    feedback_header = UART_Rx();
+    feedback_header = UARTRx();
 
     if(feedback_header == 0x55 ) {
         // reset checksum
         checksum = 0;
 
         // first byte is size of payload in bytes
-        size_payload = UART_Rx();
+        size_payload = UARTRx();
 
-        // checksum is XOR’ed value of entire bytestream
+        // checksum is XORï¿½ed value of entire bytestream
         checksum ^= size_payload;
 
         // size of basic sensor data
         for(i = 0; i < size_feedback; i++) {
-            feedback[i] = UART_Rx();
+            feedback[i] = UARTRx();
             checksum ^= feedback[i];
         }
 
         // size of rest of byestream - not required , just for checksum
         for(i = size_feedback; i < size_payload; i++) {
-            checksum ^= UART_Rx ();
+            checksum ^= UARTRx ();
         }
 
         // checksum from kobuki - final byte
-        rx_checksum ^= UART_Rx ();
+        rx_checksum ^= UARTRx ();
     }
 
     // checksums equal
@@ -87,20 +107,21 @@ uint8_t Kobuki_Rx(uint8_t *feedback , uint32_t size_feedback) {
     }
 }
 
+
 // kobuki read datastream
-void Kobuki_Read(Kobuki_Typedef *kobuki) {
+void KobukiRead(Kobuki_Typedef *kobuki) {
     
     // Init buffer & checksum
     uint8_t kobuki_rx_buffer[SIZE_FEEDBACK ];
     uint8_t checksum_result;
 
     // Read kobuki Tx data stream
-    checksum_result = Kobuki_Rx(kobuki_rx_buffer ,SIZE_FEEDBACK);
+    checksum_result = KobukiRx(kobuki_rx_buffer ,SIZE_FEEDBACK);
 
 		kobuki -> distance_complete = distance_complete;
 		kobuki -> rotation_complete = rotation_complete;
 	
-    // If checksum ’checks out ’, update sensor variables from buffer
+    // If checksum ï¿½checks out ï¿½, update sensor variables from buffer
     if (checksum_result == 0) {
         kobuki -> bumper = kobuki_rx_buffer[BUMPER ];
         kobuki -> wheeldrop = kobuki_rx_buffer[WHEEL_DROP ];
@@ -115,7 +136,7 @@ void Kobuki_Read(Kobuki_Typedef *kobuki) {
     else {}
 }
 
-void Kobuki_Tx(uint8_t *payload, uint8_t size_payload) {
+void KobukiTx(uint8_t *payload, uint8_t size_payload) {
     uint8_t checksum = 0, i;
     UART_Tx( 0xAA ); // Send header 0
     UART_Tx( 0x55 ); // Send header 1
@@ -132,7 +153,7 @@ void Kobuki_Tx(uint8_t *payload, uint8_t size_payload) {
     UART_Tx(checksum); // Send checksum
 }
 
-void Kobuki_Rotate_Or_Drive(int16_t speed, int mode) {
+void KobukiRotateOrDrive(int16_t speed, int mode) {
     // Saturation to avoid going over speed limit
     if ( speed > SPEED_LIMIT ) { 
         speed = SPEED_LIMIT;
@@ -157,33 +178,33 @@ void Kobuki_Rotate_Or_Drive(int16_t speed, int mode) {
     // Kobuki Serial Bytestream pdf Page 5
     uint8_t payload[6]  = {0x01,0x04,speed_lsb,speed_msb,radius_lsb,radius_msb};
 
-    Kobuki_Tx(payload , 6); 
+    KobukiTx(payload , 6); 
 }
 
-void Kobuki_Rotate(int16_t speed) {
+void KobukiRotate(int16_t speed) {
     // Rotation is CCW
-    Kobuki_Rotate_Or_Drive(speed, ROTATE);
+    KobukiRotateOrDrive(speed, ROTATE);
 }
 void Kobuki_Drive(int16_t speed) {
-    Kobuki_Rotate_Or_Drive(speed, DRIVE);
+    KobukiRotateOrDrive(speed, DRIVE);
 }
 
-void Kobuki_Update_LEDs(int8_t led_1_colour, int8_t led_2_colour) {
+void KobukiUpdateLEDs(int8_t led_1_colour, int8_t led_2_colour) {
     // Split LSB & MSB for payload
     uint8_t GPO_lsb = EXTERN_PWR; //keep 5V AND 3.3V on
     uint8_t GPO_msb = (led_1_colour | led_2_colour << 8);
 
     uint8_t payload[4] = {0x0C, 0x02, GPO_lsb, GPO_msb}; // Page 6 - 7 of Kobuki Serial Bytestream
 
-    Kobuki_Tx(payload ,sizeof(payload));
+    KobukiTx(payload ,sizeof(payload));
 }
 
-void Kobuki_Drive_Distance_Setpoint(uint16_t current_distance_tick, int16_t distance) {
+void KobukiDriveDistanceSetpoint(uint16_t current_distance_tick, int16_t distance) {
 		distance_complete = 0;
 		setpoint_distance_tick = current_distance_tick + (int32_t)(distance/MM_PER_TICK);
 }
 
-void Kobuki_Drive_Distance (uint16_t current_distance_tick) {
+void KobukiDriveDistance (uint16_t current_distance_tick) {
 		int16_t speed;
 		int16_t error;
 		uint16_t setpoint_alias;
@@ -197,30 +218,30 @@ void Kobuki_Drive_Distance (uint16_t current_distance_tick) {
 		}
 		if ( abs(error) <= 2 ) {
 				distance_complete = 1;
-				Kobuki_Drive(STOP);
+				KobukiDrive(STOP);
 		}
 		else {
 				speed = (sign(error) * MIN_SPEED) + (GAIN_DRIVE * error);
-				Kobuki_Drive(speed);
+				KobukiDrive(speed);
 		}
 }
 
-void Kobuki_Drive_To_Completion(int16_t distance, Kobuki_Typedef kobuki) {
-	Kobuki_Drive_Distance_Setpoint(kobuki.distance, distance);
+void KobukiDriveToCompletion(int16_t distance, Kobuki_Typedef kobuki) {
+	KobukiDriveDistanceSetpoint(kobuki.distance, distance);
 	while (kobuki.distance_complete == 0) {
-		Kobuki_Read(&kobuki);
-		Kobuki_Drive_Distance(kobuki.distance);
+		KobukiRead(&kobuki);
+		KobukiDriveDistance(kobuki.distance);
 	}
 }
 
-void Kobuki_Rotate_Angle_Setpoint(int16_t current_angle_tick, int16_t rot_angle_deg) {
+void KobukiRotateAngleSetpoint(int16_t current_angle_tick, int16_t rot_angle_deg) {
 		int32_t init_angle;
 		rotation_complete = 0;
 		init_angle = (current_angle_tick + (int32_t)18000) * DEG_PER_TICK;
 		setpoint_angle_deg = (init_angle + rot_angle_deg + 360) % 360;
 }
 
-void Kobuki_Rotate_Angle(int16_t current_angle_tick) {
+void KobukiRotateAngle(int16_t current_angle_tick) {
 		int16_t speed;
 		int16_t error;
 		int32_t current_angle_deg;
@@ -240,19 +261,20 @@ void Kobuki_Rotate_Angle(int16_t current_angle_tick) {
 		}
 		if (abs(error) <= 5) {
 				rotation_complete = 1;
-				Kobuki_Rotate(STOP);
+				KobukiRotate(STOP);
 		}
 		else {
 				speed = (sign(error) * MIN_SPEED) + (GAIN_ROTATE * error);
-				Kobuki_Rotate(speed);
+				KobukiRotate(speed);
 		}
 }
 
-void Kobuki_Rotate_Angle_To_Completion(int16_t rot_angle_deg, Kobuki_Typedef kobuki) {
-	Kobuki_Rotate_Angle_Setpoint(kobuki.angle, rot_angle_deg);
+void KobukiRotateAngleToCompletion(int16_t rot_angle_deg, Kobuki_Typedef kobuki) {
+	KobukiRotateAngleSetpoint(kobuki.angle, rot_angle_deg);
 	int EXIT_COUNTER = 200;
 	while (kobuki.rotation_complete == 0 && EXIT_COUNTER-->=0) {
-		Kobuki_Read(&kobuki);
-		Kobuki_Rotate_Angle(kobuki.angle);
+		KobukiRead(&kobuki);
+		KobukiRotateAngle(kobuki.angle);
 	}
 }
+// ==== FUNCTION IMPLEMENTATIONS ====
