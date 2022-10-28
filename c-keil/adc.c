@@ -7,7 +7,7 @@
  *  =========================
  *
  * File:          adc.c
- * Description:   Enable the microcontroller to initialise and read from the ADC from the . 
+ * Description:   Enable the microcontroller to initialise and read from the ADC from the selected channel. 
  */
 
 #include "adc.h"
