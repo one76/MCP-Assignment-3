@@ -55,80 +55,78 @@ static uint8_t		        distance_complete = 1;
 
 
 // ==== FUNCTION HEADERS ====
-/** KobukiRx
-*   @brief
-*   @param
-*   @return
+/** KobukiRx: 
+*   @brief 
+*   @param feedback
+*   @param size_feedback
+*   @return [uint8_t]
+*   @b 1: message received successfully (checksums match)
+*   @b 0: message not receives successfully (checksums do not match)
 */
-uint8_t KobukiRx(uint8_t* , uint32_t);
+uint8_t KobukiRx(uint8_t* feedback, uint32_t size_feedback);
 
-/**
+/** KobukiTx: 
 *   @brief
-*   @param
-*   @return
+*   @param payload
+*   @param size_payload
 */
-void KobukiTx(uint8_t*, uint8_t);
+void KobukiTx(uint8_t* payload, uint8_t size_payload);
 
-/**
+/** Kobuki Read: 
 *   @brief
-*   @param
-*   @return
+*   @param kobuki kobuki 'object'
 */
-void KobukiRead(Kobuki_Typedef*);
+void KobukiRead(Kobuki_Typedef* kobuki);
 
-/**
+/** KobukiRotateOrDrive: 
 *   @brief
-*   @param
-*   @return
+*   @param speed
+*   @param mode
 */
 void KobukiRotateOrDrive(int16_t speed, int mode);
 
-/**
+/** Kobuki Rotate: 
 *   @brief
-*   @param
-*   @return
+*   @param speed
 */
 void KobukiRotate(int16_t speed);
 
-/**
+/** Kobuki Drive: 
 *   @brief
-*   @param
-*   @return
+*   @param speed
 */
 void KobukiDrive(int16_t speed);
 
-/**
+/** Kobuki Drive Distance: 
 *   @brief
-*   @param
-*   @return
+*   @param current_distance_tick
 */
 void KobukiDriveDistance(uint16_t current_distance_tick);
 
-/**
+/** Kobuki Drive Distance Setpoint: 
 *   @brief
-*   @param
-*   @return
+*   @param current_distance_tick
+*   @param distance
 */
 void KobukiDriveDistanceSetpoint(uint16_t current_distance_tick, int16_t distance);
 
-/**
+/** Kobuki Drive to Completion: 
 *   @brief
-*   @param
-*   @return
+*   @param distance
+*   @param kobuki 
 */
 void KobukiDriveToCompletion(int16_t distance, Kobuki_Typedef kobuki);
 
-/**
+/** Kobuki Rotate Angle Setpoint: 
 *   @brief
-*   @param
-*   @return
+*   @param current_angle_tick
+*   @param rot_angle_deg
 */
 void KobukiRotateAngleSetpoint(int16_t current_angle_tick, int16_t rot_angle_deg);
 
-/**
-*   @brief
-*   @param
-*   @return
+/** Kobuki Rotate Angle: 
+*   @brief Rotates kobuki using a P-Controller
+*   @param current_angle_tick
 */
 void KobukiRotateAngle(int16_t current_angle_tick);
 
@@ -138,7 +136,7 @@ void KobukiRotateAngle(int16_t current_angle_tick);
 *   cannot check sensors while rotating so be careful when using!
 *   @param rot_angle_deg angle to rotate by in degrees. Note: positive
 *   angle is CCW and negative angle is CW.
-*   @return
+*   @param kobuki the kobuki 'object'
 */
 void KobukiRotateAngleToCompletion(int16_t rot_angle_deg, Kobuki_Typedef kobuki);
 
