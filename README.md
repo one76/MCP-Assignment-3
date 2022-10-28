@@ -4,8 +4,7 @@
 
 **Branch: Master**
 
-<<<<<<< HEAD
-### Algorithm:
+#### **Algorithm**: Simple Algorith with Hardcoding for Layout 3, Rock 2
 1. Search until see the closest rock (less than 850mm)
 2. Approximately center the closest rock
 3. Drive towards the closest rock
@@ -18,10 +17,8 @@
    2. Drive right to go into the right-half of the layout
    3. Search for the second rock
    4. Drive to the second rock
-9. Stop approximately 85 mm before rock (210/2- *Rock Radius*:40/2)
-=======
-Contains skeleton for algorithm design in ```MarsRoverNavigation.testAlgorithm(self, draw)```
->>>>>>> comment
+9. Stop approximately 60 mm before rock
+
 
 ### FSM
 ![Finite State Machine of Simple Algorithm with Layout 3 Hardcoding](./Flowchart_MCP_AS_L3.png)
