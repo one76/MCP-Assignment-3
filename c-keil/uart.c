@@ -1,14 +1,36 @@
+/*
+*
+*  =========================
+* |     MCP Assignment 3     |
+* | Michael Laden - a1748876 |
+* | Michael Neill - a1764673 |
+*  =========================
+*
+* File:             uart.c
+* Description:      UART serial communication functions.
+*                   Implementation file
+* 
+*/
+
+
+// ==== INCLUDES ====
 #include "uart.h"
 #include "LPC407x_8x_177x_8x.h" // Hack solution
+// ==== INCLUDES ====
 
+
+// ==== MACROS ====
 #define PCUART_0 3
 #define PCUART_2 24
 #define PCUART_3 25
 
 #define KOBOUKI_TX_UART_0 (0 << 16)| 0
 #define KOBOUKI_RX_UART_0 (0 << 16)| 1
+// ==== MACROS ====
 
-void UART_Init(void) {
+
+// ===== FUNCTION IMPLEMENTATIONS ====
+void UARTInit(void) {
 	
 	// 1) turn on the power
 	LPC_SC -> PCONP |= (1U << PCUART_0); //UART0 power/clock control bit
@@ -30,17 +52,17 @@ void UART_Init(void) {
 	LPC_UART0 -> FCR = (1U << 0) | (1U << 1) | (1U << 2);
 	
 	// 5) Select pins and pin modes
-	GPIO_Pin_Config( KOBOUKI_TX_UART_0 , 0x4 | 0x2 << 3); // MODE - IOCON register bit description
-	GPIO_Pin_Config( KOBOUKI_RX_UART_0 , 0x4 | 0x2 << 3); // MODE - IOCON register bit description
+	GPIOPinConfig(KOBOUKI_TX_UART_0 , 0x4 | 0x2 << 3); // MODE - IOCON register bit description
+	GPIOPinConfig(KOBOUKI_RX_UART_0 , 0x4 | 0x2 << 3); // MODE - IOCON register bit description
 	
 	// 6) Configure UART
-  LPC_UART0 -> LCR |= (0x3 << 0);
+    LPC_UART0 -> LCR |= (0x3 << 0);
 	
 	// 7) Enable Tx
 	LPC_UART0 -> TER = (1U << 7); //TXEN - send data when enabled
 }
 
-void UART_Tx(uint8_t byte) {
+void UARTTx(uint8_t byte) {
     // hold until FIFO is empty - auto cleared
     while( !(LPC_UART0 -> LSR & (1U << 5) ) ); // THRE - transmitter holding register empty
     
@@ -48,7 +70,7 @@ void UART_Tx(uint8_t byte) {
     LPC_UART0 -> THR = byte; // THR - transmit holding register
 }
 
-uint8_t UART_Rx(void) {
+uint8_t UARTRx(void) {
     // hold when an unread character in FIFO - auto cleared
     while( !(LPC_UART0 -> LSR & 1U) ); // RDR - check if FIFO empty. Table 402 PAge 503
 
@@ -56,3 +78,4 @@ uint8_t UART_Rx(void) {
     return (LPC_UART0 -> RBR & 0xFF); //RBR - reciever buffer register
                                     // oldest recieved byte in FIFO. Table 393 Page 496
 }
+// ===== FUNCTION IMPLEMENTATIONS ====
