@@ -39,9 +39,6 @@
 #define ANGLE_LSB   24
 #define ANGLE_MSB   25
 
-#define ROTATE      0
-#define DRIVE       1
-
 #define EXTERN_PWR  0x30
 
 #define PI                      3.1416f
@@ -120,7 +117,7 @@ void KobukiRead(Kobuki_Typedef* kobuki) {
     kobuki -> distance_complete = distance_complete;
     kobuki -> rotation_complete = rotation_complete;
 	
-    // If checksum �checks out �, update sensor variables from buffer
+    // If checksum checks out, update sensor variables from buffer
     if (checksum_result == 0) {
         kobuki -> bumper = kobuki_rx_buffer[BUMPER];
         kobuki -> wheeldrop = kobuki_rx_buffer[WHEEL_DROP];

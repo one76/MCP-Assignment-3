@@ -24,14 +24,19 @@
 
 
 // ==== MACROS ====
-#define SPEED_LIMIT (int16_t)150 //mm/s
+#define SPEED_LIMIT (int16_t)150 // mm/s
 #define SEARCH_SPEED (int16_t)75 // mm/s
+
 #define STOP    0
 #define CCW     1   // Counter-clockwise
 #define CW      -1  // Clockwise
+
 #define BUTTON_0 0x01
 #define BUTTON_1 0x02
 #define BUTTON_2 0x04
+
+#define ROTATE      0
+#define DRIVE       1
 // ==== MACROS ====
 
 
@@ -56,7 +61,8 @@ static uint8_t		        distance_complete = 1;
 
 // ==== FUNCTION HEADERS ====
 /** KobukiRx: 
-*   @brief 
+*   @brief Reads serial data from kobuki and checks wether
+*   it has come through completely or not
 *   @param feedback
 *   @param size_feedback
 *   @return [uint8_t]
@@ -66,67 +72,71 @@ static uint8_t		        distance_complete = 1;
 uint8_t KobukiRx(uint8_t* feedback, uint32_t size_feedback);
 
 /** KobukiTx: 
-*   @brief
+*   @brief Sends information to kobuki
 *   @param payload
 *   @param size_payload
 */
 void KobukiTx(uint8_t* payload, uint8_t size_payload);
 
 /** Kobuki Read: 
-*   @brief
+*   @brief Translates serial data from kobuki into sensor
+*   information like bumper sensor, cliff sensor, etc.
 *   @param kobuki kobuki 'object'
 */
 void KobukiRead(Kobuki_Typedef* kobuki);
 
 /** KobukiRotateOrDrive: 
-*   @brief
-*   @param speed
-*   @param mode
+*   @brief Local function to combine shared code for KobukiDrive and KobukiRotate
+*   @param speed speed in mm/s
+*   @param mode drive or rotate (macros)
 */
 void KobukiRotateOrDrive(int16_t speed, int mode);
 
 /** Kobuki Rotate: 
-*   @brief
-*   @param speed
+*   @brief Rotates the kobuki at a specified speed
+*   @param speed speed in mm/s
 */
 void KobukiRotate(int16_t speed);
 
 /** Kobuki Drive: 
-*   @brief
-*   @param speed
+*   @brief Drives the kobuki at a specified speed
+*   @param speed speed in mm/s
 */
 void KobukiDrive(int16_t speed);
 
 /** Kobuki Drive Distance: 
-*   @brief
+*   @brief Drives the kobuki the distance specified 
+*   in KobukiDriveDistanceSetpoint using a P-Controller
 *   @param current_distance_tick
 */
 void KobukiDriveDistance(uint16_t current_distance_tick);
 
 /** Kobuki Drive Distance Setpoint: 
-*   @brief
-*   @param current_distance_tick
-*   @param distance
+*   @brief Sets the specified distance for the kobuki to drive
+*   @param current_distance_tick kobuki.distance
+*   @param distance distance in mm
 */
 void KobukiDriveDistanceSetpoint(uint16_t current_distance_tick, int16_t distance);
 
 /** Kobuki Drive to Completion: 
-*   @brief
-*   @param distance
-*   @param kobuki 
+*   @brief Drives the kobuki a specified distance before exiting the function.
+*   This function drives until the kobuki has completed the set distance and won't
+*   be able to check its sensors so be careful when using it!
+*   @param distance distance to drive in mm
+*   @param kobuki kobuki 'object'
 */
 void KobukiDriveToCompletion(int16_t distance, Kobuki_Typedef kobuki);
 
 /** Kobuki Rotate Angle Setpoint: 
-*   @brief
-*   @param current_angle_tick
-*   @param rot_angle_deg
+*   @brief Sets the angle to be rotated by the kobuki in degrees
+*   @param current_angle_tick kobuki.angle
+*   @param rot_angle_deg object.angle (angle in deg)
 */
 void KobukiRotateAngleSetpoint(int16_t current_angle_tick, int16_t rot_angle_deg);
 
 /** Kobuki Rotate Angle: 
 *   @brief Rotates kobuki using a P-Controller
-*   @param current_angle_tick
+*   @param current_angle_tick kobuki.angle
 */
 void KobukiRotateAngle(int16_t current_angle_tick);
 
