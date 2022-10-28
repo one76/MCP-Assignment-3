@@ -477,8 +477,9 @@ class PointInsidePolygon(Scene):
 
 class State(Enum):
     SEARCH      = 0
-    OBJECT      = 1
-    OBSTACLE    = 2
+    FOUND       = 1
+    OBJECT      = 3
+    OBSTACLE    = 4
 
 class MarsRoverNavigation(Scene):
     rover=None
@@ -527,7 +528,8 @@ class MarsRoverNavigation(Scene):
             U*(-H/2+Kobuki.Radius),
             0
         ]
-        roverStartAngle=random.randrange(0,360)
+        #roverStartAngle=random.randrange(0,360)
+        roverStartAngle=0
 
         MarsRoverNavigation.rover=Kobuki.DrawKobuki(self,roverStartPos,roverStartAngle,True)
         return Layout3, 2 # layout_num
@@ -581,6 +583,13 @@ class MarsRoverNavigation(Scene):
         state=None
         state=MarsRoverNavigation.updateState(state,State.SEARCH)
 
+        layout3=False
+
+        detectObjectCounter=0
+        objectRanges=[0,0]
+        objectAngles=[0,0]
+        
+
         WHILE_ESCAPE_COUNTER=600
         while (MarsRoverNavigation.mission != [True, True]) and WHILE_ESCAPE_COUNTER>0:
             WHILE_ESCAPE_COUNTER-=1
@@ -590,16 +599,75 @@ class MarsRoverNavigation(Scene):
             bumper          = Kobuki.UpdateBumper   (layout_num, self)
             cliff           = Kobuki.UpdateCliff    (layout_num, self)
 
+            # Boolean flags
+            found_both_rocks    = detectObjectCounter>=2
+            found_new_rock      = not int(objectRanges[0])==int(dist)            
+            collecting_1st_rock = MarsRoverNavigation.mission[0] == False
+            keep_searching      = False if not collecting_1st_rock or (collecting_1st_rock and dist<850) else True
+            
+            output.write("\tfound_both_rocks: " + str(found_both_rocks) + "\n")
+            output.write("\tfound_new_rock:\t" + str(found_new_rock) + "\n")
+            output.write("\tcollecting_1st_rock: " + str(collecting_1st_rock) + "\n")
+            output.write("\tkeep_searching:\t" + str(keep_searching) + "\n")
+
+            MarsRoverNavigation.drawCliffSensorPoints(self, CLIFF_SHOW)
+
             # FSM
             match state:
                 case State.SEARCH:
-                    pass
-                      
+                    if detected:
+                        state=MarsRoverNavigation.updateState(state,State.FOUND)
+                    if bumper or cliff:
+                        state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
+                    elif not detected or (detected and keep_searching):
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,2*MarsRoverNavigation.DIR,ROTATE_SPEED,0.01)
+
+                case State.FOUND:
+                    if not collecting_1st_rock or (collecting_1st_rock and dist<850):
+                        keep_searching=False
+                        state=MarsRoverNavigation.updateState(state,State.OBJECT)
+                        Kobuki.Rotate(self,MarsRoverNavigation.rover,11*MarsRoverNavigation.DIR,ROTATE_SPEED/2)
+                    else: 
+                        keep_searching=True
+                        state=MarsRoverNavigation.updateState(state,State.SEARCH)
+
+
                 case State.OBJECT:
-                    pass
+                    if detected and not bumper and not cliff:
+                        if collecting_1st_rock:
+                            bumper, cliff = MarsRoverNavigation.driveWithSensor(self,layout_num,dist,20)
+                        else: # if collecting 2nd rock
+                            bumper, cliff = MarsRoverNavigation.driveWithSensor(self,layout_num,dist-85,20) # stop just before the rock
+                            if 60<=dist<=100: MarsRoverNavigation.mission[1]=True # Update collection status
+                    
+                    if bumper: # Should only hit bumper when colleting first rock
+                        MarsRoverNavigation.mission[0]=True # Update collection status
+                        removeRock1=Circle(radius=Layouts.RockRad*U, color=GOLD_A).set_fill(color=GOLD_A, opacity=1).move_to(Layouts.R1Pos[layout_num])
+                        self.add(removeRock1)
+
+                        state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
+                    if cliff:
+                        if not collecting_1st_rock: layout3=True
+                        state=MarsRoverNavigation.updateState(state,State.OBSTACLE)
+                    if not detected and not bumper and not cliff:
+                        state=MarsRoverNavigation.updateState(state,State.SEARCH)
 
                 case State.OBSTACLE:
-                    pass
+                    if not (bumper or cliff):
+                        state=MarsRoverNavigation.updateState(state,State.SEARCH)                    
+                    else:
+                        Kobuki.Drive(self,MarsRoverNavigation.rover,-80*U,DRIVE_SPEED)
+                        if cliff and not layout3:
+                            Kobuki.Rotate(self,MarsRoverNavigation.rover,60*CW,ROTATE_SPEED)
+                            Kobuki.Drive(self,MarsRoverNavigation.rover,250*U,DRIVE_SPEED)
+                            MarsRoverNavigation.DIR=CCW
+
+                        # Hard coding for layout 3
+                        elif layout3 and cliff:
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,100*CW,ROTATE_SPEED)
+                                Kobuki.Drive(self,MarsRoverNavigation.rover,700*U,DRIVE_SPEED)
+                                Kobuki.Rotate(self,MarsRoverNavigation.rover,100*CCW,ROTATE_SPEED)
+                                Kobuki.Drive(self,MarsRoverNavigation.rover,500*U,DRIVE_SPEED)
 
     # What is called when you run "manim MCP_A3.py MarsRoverNavigation"
     def construct(self):
@@ -615,7 +683,7 @@ class MarsRoverNavigation(Scene):
         if CLIFF_SHOW: self.add(*MarsRoverNavigation.d)
 
         # ==== CHOOSE LAYOUT ====
-        layout, layout_num=MarsRoverNavigation.SetTest1(self)
+        layout, layout_num=MarsRoverNavigation.SetTest3(self)
         # ==== CHOOSE LAYOUT ====
 
         MarsRoverNavigation.testAlgorithm(self, layout_num)
