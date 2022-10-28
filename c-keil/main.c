@@ -37,11 +37,11 @@ int main() {
     US_Typedef object       = {};
 
     // For Storing States
-    int collected_rocks[2]  = {0,0};
+    int collected_rocks[2]  = {FALSE,FALSE}; // [collected 1st rock, collected 2nd rock]
     int DIR                 = CCW;
 	int prev_range          = 0;
 
-    // Boolean flag
+    // Boolean flags
     int collecting_first_rock   = collected_rocks[0] == FALSE;
     int keep_searching          = (!collecting_first_rock || (collecting_first_rock && object.range<850)) ? TRUE : FALSE;
     int LAYOUT_3                = FALSE;
@@ -52,7 +52,6 @@ int main() {
     ADCInit();
     UARTInit();
     UltrasonicInit();
-
 
     while(1) {
         
@@ -66,8 +65,9 @@ int main() {
             kobuki.wheeldrop            
         );
         collecting_first_rock   = collected_rocks[0] == FALSE;
-		found_new_rock          = !(object.range>=prev_range-200 && object.range<=prev_range+200);
-					
+		found_new_rock          = !((int16_t)object.range>=prev_range-200 && (int16_t)object.range<=prev_range+200);
+
+        // FSM	
         switch (state)
         {
         case IDLE:
@@ -84,7 +84,7 @@ int main() {
             if (kobuki.button == BUTTON_1) {
                 state = IDLE;
             }
-            else if (object.detected && found_new_rock) {
+            else if (object.detected && found_new_rock) { // don't want to mistake the same rock for a new rock
 				prev_range = object.range;
 				KobukiRotate(STOP);
                 state = FOUND;
@@ -102,13 +102,13 @@ int main() {
             if (stop_kobuki) {
                 state = IDLE;
             }
-			// Find closest rock
+			// Find closest rock first. 850mm was found emperically
             else if (!collecting_first_rock || (collecting_first_rock && object.range<850)) {
                 keep_searching = FALSE;
-                KobukiRotateAngleToCompletion((int16_t)11*DIR, kobuki);
+                KobukiRotateAngleToCompletion((int16_t)11*DIR, kobuki); // Rotate to centre the 
                 state = OBJECT;
             }
-            else {
+            else { // if collecting first rock but haven't found the closest (first) rock
                 keep_searching = TRUE;
                 state = SEARCH;
             }
@@ -117,31 +117,31 @@ int main() {
         case OBJECT:
 			if (stop_kobuki) {
                 state = IDLE;
-            }
-						
+            }		
             // Bumping 1st rock or stopping before 2nd rock
             if (object.detected && !kobuki.bumper && !kobuki.cliff) {
-                // DRIVE TO OBJECT
-                if (kobuki.distance_complete == 0) {
+
+                if (kobuki.distance_complete == 0) { // Telling the kobuki to actually drive
                     KobukiDriveDistance(kobuki.distance);
                 }
-                
-                
                 if (collecting_first_rock) {
                     KobukiDriveDistanceSetpoint(kobuki.distance, object.range);
                 }
-                else {
+                else { // Collecting 2nd rock
                     KobukiDriveDistanceSetpoint(kobuki.distance, object.range-60);
-                    if (object.range <= 60) state=IDLE;
+                    if (object.range <= 60) { // If get to the second rock then reset
+                        state = IDLE; 
+                        collected_rocks[0] = FALSE; 
+                        collected_rocks[1] = FALSE;
+                    }
                 }
             }
-
-            if (kobuki.bumper) {
+            if (kobuki.bumper) { // Should only hit bumper when collecting 1st rock
                 collected_rocks[0] = TRUE;
                 state = IDLE;
             }
-            if (kobuki.cliff) {
-                if (!collecting_first_rock) {
+            if (kobuki.cliff) { // Should only activate cliff sensor in layout 3
+                if (!collecting_first_rock) { // Should only use hardcoded logic for when collecting 2nd rock
                     LAYOUT_3 = TRUE;
                 }
                 state = OBSTACLE;
@@ -164,13 +164,12 @@ int main() {
                     KobukiRotateAngleToCompletion((int16_t)60*CW, kobuki);
                     KobukiDriveToCompletion((int16_t)250, kobuki);
                 }
-                else if (kobuki.cliff && LAYOUT_3) {
+                else if (kobuki.cliff && LAYOUT_3) { // Hardcoded logic for Layout 3, 2nd rock
                     KobukiRotateAngleToCompletion((int16_t)100*CW, kobuki);
                     KobukiDriveToCompletion((int16_t)700, kobuki);
                     KobukiRotateAngleToCompletion((int16_t)100*CW, kobuki);
                     KobukiDriveToCompletion((int16_t)500, kobuki);
                 }
-                
             }		
             break;
         }
