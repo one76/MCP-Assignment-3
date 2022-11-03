@@ -19,9 +19,5 @@
    4. Drive to the second rock
 9. Stop approximately 60 mm before rock
 
-
-### FSM
-![Finite State Machine of Simple Algorithm with Layout 3 Hardcoding](./Flowchart_MCP_AS_L3.png)
-
 ###
 Run ```manim -ql -p MCP_A3.py MarsRoverNavigation``` to run the code
